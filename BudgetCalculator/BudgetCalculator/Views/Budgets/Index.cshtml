@@ -20,22 +20,12 @@
         <th>
             @Html.DisplayNameFor(model => model.BudgetYear)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarExpenseId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UtilityBillExpenseId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HouseholdExpenseId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PersonalExpenseId)
-        </th>
+       
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.BudgetUser.LastName)
@@ -46,23 +36,30 @@
         <td>
             @Html.DisplayFor(modelItem => item.BudgetYear)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.CarExpenseId)
+        <div class="btn-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Income" class="btn btn-default" />
+            </div>
+        </div>
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.UtilityBillExpenseId)
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
+                   row="button" aria-expanded="false">
+                    Select Expense <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Car", "Create", "CarExpenses", new { id = item.BudgetId }, null)</li>
+                    <li>@Html.ActionLink("Household", "Create", "HouseholdExpenses", new { id = item.BudgetId }, null)</li>
+                    <li>@Html.ActionLink("Personal", "Create", "PersonalExpenses", new { id = item.BudgetId }, null)</li>
+                    <li>@Html.ActionLink("Utility Bill", "Create", "UtilityBillExpenses", new { id = item.BudgetId }, null)</li>
+                </ul>
+            </div>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HouseholdExpenseId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PersonalExpenseId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BudgetId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BudgetId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BudgetId })
-        </td>
+
     </tr>
 }
 

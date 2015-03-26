@@ -38,10 +38,12 @@ namespace BudgetCalculator.Controllers
         }
 
         // GET: Budgets/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.BudgetUserId = new SelectList(db.BudgetUsers, "BudgetUserId", "LastName");
-            return View();
+            Budget b = new Budget();
+            b.BudgetUserId = id;
+            // ViewBag.BudgetUserId = new SelectList(db.BudgetUsers, "BudgetUserId", "LastName");
+            return View(b);
         }
 
         // POST: Budgets/Create
@@ -49,8 +51,9 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetYear,CarExpenseId,UtilityBillExpenseId,HouseholdExpenseId,PersonalExpenseId")] Budget budget)
+        public ActionResult Create([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetYear")] Budget budget, int id)
         {
+            budget.BudgetUserId = id;
             if (ModelState.IsValid)
             {
                 db.Budgets.Add(budget);
@@ -83,7 +86,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetYear,CarExpenseId,UtilityBillExpenseId,HouseholdExpenseId,PersonalExpenseId")] Budget budget)
+        public ActionResult Edit([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetYear")] Budget budget)
         {
             if (ModelState.IsValid)
             {

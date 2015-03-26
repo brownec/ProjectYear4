@@ -20,15 +20,15 @@ namespace ProjectYear4.Models
         [Display(Name = "Budget Year")]
         public DateTime BudgetYear { get; set; }
 
-        public int CarExpenseId { get; set; }
+        //public int CarExpenseId { get; set; }
 
-        public int UtilityBillExpenseId { get; set; }
+        //public int UtilityBillExpenseId { get; set; }
 
-        public int HouseholdExpenseId { get; set; }
+        //public int HouseholdExpenseId { get; set; }
 
-        public int PersonalExpenseId { get; set; }
+        //public int PersonalExpenseId { get; set; }
 
-
+        // navigation properties
         public virtual BudgetUser BudgetUser { get; set; }
 
         public virtual ICollection<CarExpense> CarExpenses { get; set; }
