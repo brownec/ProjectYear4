@@ -1,0 +1,90 @@
+﻿@model ProjectYear4.Models.HouseholdExpense
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Household Expenditure Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget.BudgetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budget.BudgetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroceryAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroceryAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClothingAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClothingAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EducationFeesAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EducationFeesAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolBooksAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolBooksAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicalBillAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicalBillAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdOtherAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdOtherAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Expenses", "Edit", new { id = Model.HouseholdExpenseId }) |
+    @Html.ActionLink("Back to Household Expenditure", "Index")
+</p>

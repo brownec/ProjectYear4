@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ProjectYear4.Models.HouseholdExpense>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Household Expenditure</h2>
+
+<p>
+    @Html.ActionLink("Add Household Expenses", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget.BudgetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroceryAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClothingAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EducationFeesAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SchoolBooksAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicalBillAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseholdOtherAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Budget.BudgetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroceryAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClothingAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EducationFeesAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SchoolBooksAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicalBillAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HouseholdOtherAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit Household Expenditure", "Edit", new { id=item.HouseholdExpenseId }) |
+            @Html.ActionLink("Household Expenditure Details", "Details", new { id=item.HouseholdExpenseId }) |
+            @Html.ActionLink("Delete Household Expenditure", "Delete", new { id=item.HouseholdExpenseId })
+        </td>
+    </tr>
+}
+
+</table>

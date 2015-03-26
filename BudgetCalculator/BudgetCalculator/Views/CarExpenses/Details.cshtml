@@ -1,0 +1,83 @@
+﻿@model ProjectYear4.Models.CarExpense
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Car Expenditure Details</h2>
+
+<div>
+    
+    <a href="~/Views/CarExpenses/Details.cshtml">~/Views/CarExpenses/Details.cshtml</a>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget.BudgetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budget.BudgetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarInsurance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarInsurance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maintenance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maintenance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FuelType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FuelType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FuelAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FuelAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NctTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NctTest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NctAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NctAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Expenses", "Edit", new { id = Model.CarExpenseId }) |
+    @Html.ActionLink("Back to Car Expenditure", "Index")
+</p>

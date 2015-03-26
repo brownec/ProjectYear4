@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ProjectYear4.Models.CarExpense>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Car Expenditure</h2>
+
+<p>
+    @Html.ActionLink("Add Car Expenses", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget.BudgetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarInsurance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maintenance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NctTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NctAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Budget.BudgetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarInsurance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maintenance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NctTest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NctAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit Expenses", "Edit", new { id=item.CarExpenseId }) |
+            @Html.ActionLink("Car Expenditure Details", "Details", new { id=item.CarExpenseId }) |
+            @Html.ActionLink("Delete Car Expenditure", "Delete", new { id=item.CarExpenseId })
+        </td>
+    </tr>
+}
+
+</table>

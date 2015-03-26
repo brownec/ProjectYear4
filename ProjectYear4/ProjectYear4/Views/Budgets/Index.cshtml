@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProjectYear4.Models.Budget>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetUser.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarExpenseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UtilityBillExpenseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseholdExpenseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonalExpenseId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetUser.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarExpenseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UtilityBillExpenseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HouseholdExpenseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonalExpenseId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BudgetId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BudgetId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BudgetId })
+        </td>
+    </tr>
+}
+
+</table>
