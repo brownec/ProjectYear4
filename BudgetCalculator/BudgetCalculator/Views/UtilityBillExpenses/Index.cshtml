@@ -69,10 +69,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.UtilityBillExpenseAmount)
         </td>
+
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UtilityBillExpenseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UtilityBillExpenseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UtilityBillExpenseId })
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
+                   row="button" aria-expanded="false">
+                    Utility Bill Expenses <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit Utility Bill Expenditure", "Edit", new { id = item.UtilityBillExpenseId })</li>
+                    <li>@Html.ActionLink("Personal Utility Bill Details", "Details", new { id = item.UtilityBillExpenseId })</li>
+                    <li>@Html.ActionLink("Delete Utility Bill Expenditure", "Delete", new { id = item.UtilityBillExpenseId })</li>
+                </ul>
+            </div>
         </td>
     </tr>
 }

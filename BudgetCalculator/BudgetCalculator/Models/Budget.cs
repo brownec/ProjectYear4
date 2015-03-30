@@ -16,16 +16,13 @@ namespace ProjectYear4.Models
         public String BudgetName { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-mm-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Budget Year")]
         public DateTime BudgetYear { get; set; }
 
         //public int CarExpenseId { get; set; }
-
         //public int UtilityBillExpenseId { get; set; }
-
         //public int HouseholdExpenseId { get; set; }
-
         //public int PersonalExpenseId { get; set; }
 
         // navigation properties

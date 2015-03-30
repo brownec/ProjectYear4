@@ -64,10 +64,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.NctAmount)
         </td>
+
         <td>
-            @Html.ActionLink("Edit Expenses", "Edit", new { id=item.CarExpenseId }) |
-            @Html.ActionLink("Car Expenditure Details", "Details", new { id=item.CarExpenseId }) |
-            @Html.ActionLink("Delete Car Expenditure", "Delete", new { id=item.CarExpenseId })
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
+                   row="button" aria-expanded="false">
+                    Car Expenses <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit Expenses", "Edit", new { id = item.CarExpenseId })</li>
+                    <li>@Html.ActionLink("Car Expenditure Details", "Details", new { id = item.CarExpenseId })</li>
+                    <li>@Html.ActionLink("Delete Car Expenditure", "Delete", new { id = item.CarExpenseId })</li>
+                </ul>
+            </div>
         </td>
     </tr>
 }

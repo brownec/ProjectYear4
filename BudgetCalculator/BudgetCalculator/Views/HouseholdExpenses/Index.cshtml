@@ -70,10 +70,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.HouseholdOtherAmount)
         </td>
+
         <td>
-            @Html.ActionLink("Edit Household Expenditure", "Edit", new { id=item.HouseholdExpenseId }) |
-            @Html.ActionLink("Household Expenditure Details", "Details", new { id=item.HouseholdExpenseId }) |
-            @Html.ActionLink("Delete Household Expenditure", "Delete", new { id=item.HouseholdExpenseId })
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
+                   row="button" aria-expanded="false">
+                    Household Expenses <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit Household Expenditure", "Edit", new { id = item.HouseholdExpenseId })</li>
+                    <li>@Html.ActionLink("Household Expenditure Details", "Details", new { id = item.HouseholdExpenseId })</li>
+                    <li>@Html.ActionLink("Delete Household Expenditure", "Delete", new { id = item.HouseholdExpenseId })</li>
+                </ul>
+            </div>
         </td>
     </tr>
 }
