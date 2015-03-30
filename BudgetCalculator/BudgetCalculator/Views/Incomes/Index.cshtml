@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Income</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Home", "Index", "Budgets")
 </p>
 <table class="table">
     <tr>
@@ -28,11 +28,27 @@
         <td>
             @Html.DisplayFor(modelItem => item.IncomeAmount)
         </td>
+
         <td>
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
+                   row="button" aria-expanded="false">
+                    Income Action <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit Income", "Edit", new { id = item.IncomeId })</li>
+                    <li>@Html.ActionLink("Income Details", "Details", new { id = item.IncomeId })</li>
+                    <li>@Html.ActionLink("Delete Income", "Delete", new { id = item.IncomeId })</li>
+
+                </ul>
+            </div>
+        </td>
+
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IncomeId }) |
             @Html.ActionLink("Details", "Details", new { id=item.IncomeId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.IncomeId })
-        </td>
+        </td>*@
     </tr>
 }
 
