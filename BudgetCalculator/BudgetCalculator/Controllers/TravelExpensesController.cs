@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BudgetCalculator.Models;
+using ProjectYear4.Models;
 
 namespace BudgetCalculator.Controllers
 {
@@ -37,10 +38,13 @@ namespace BudgetCalculator.Controllers
         }
 
         // GET: TravelExpenses/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.BudgetId = new SelectList(db.Budgets, "BudgetId", "BudgetName");
-            return View();
+            // foreign key id attribute
+            TravelExpense te = new TravelExpense();
+            te.BudgetId = id;
+            // ViewBag.BudgetId = new SelectList(db.Budgets, "BudgetId", "BudgetName");
+            return View(te);
         }
 
         // POST: TravelExpenses/Create
@@ -48,8 +52,10 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TravelExpenseId,BusAmount,LuasAmount,TaxiAmount,TrainAmount,TravelOther,BudgetId")] TravelExpense travelExpense)
+        public ActionResult Create([Bind(Include = "TravelExpenseId,BusAmount,LuasAmount,TaxiAmount,TrainAmount,TravelOther,BudgetId")] TravelExpense travelExpense, int id)
         {
+            // foreign key id attribute
+            travelExpense.BudgetId = id;
             if (ModelState.IsValid)
             {
                 db.TravelExpenses.Add(travelExpense);

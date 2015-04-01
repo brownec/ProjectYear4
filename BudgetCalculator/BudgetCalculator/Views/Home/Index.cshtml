@@ -2,19 +2,18 @@
     ViewBag.Title = "Home Page";
 }
 
-<h1>Budget Calculator</h1>
+<h2>Budget Calculator</h2>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>My Budgets</h2>
-        <p>Click to view previously saved Budgets</p>
+        <h3>@Html.ActionLink("My Budgets", "Index", "Budgets")</h3>
+        <p>Click <b>Budgets</b> to view saved Budgets</p>
         <p><a class="btn btn-default" @Html.ActionLink("Budgets", "Index", "Budgets")</a></p>
     </div>
 
     <div class="col-md-4">
-        <h2>Budget Analysis</h2>
-        <p>Click to Analyse previous Budgets</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Budget Analysis &raquo;</a></p>
+        <h3>@Html.ActionLink("Budget Analysis", "Index", "Budgets")</h3>
+        <p>Click <b>Analysis</b> to Analyse previous Budgets</p>
+        <p><a class="btn btn-default" @Html.ActionLink("Analysis", "Index", "Budgets")</a></p>
     </div>
-   
 </div>

@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
 </p>
+<h3>Travel Expenditure</h3>
+
 <table class="table">
     <tr>
         <th>
@@ -52,12 +53,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.TravelOther)
         </td>
+
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TravelExpenseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TravelExpenseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TravelExpenseId })
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
+                   row="button" aria-expanded="false">Select <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit Expenditure", "Edit", new { id = item.TravelExpenseId })</li>
+                    <li>@Html.ActionLink("Expenditure Details", "Details", new { id = item.TravelExpenseId })</li>
+                    <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.TravelExpenseId })</li>
+                </ul>
+            </div>
         </td>
     </tr>
 }
-
 </table>

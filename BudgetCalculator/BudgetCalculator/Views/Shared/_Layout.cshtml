@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Users", "Index", "BudgetUsers")</li>
                     <li>@Html.ActionLink("Budgets", "Index", "Budgets")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year | Budget Calculator | Cliff Browne</p>
+            <p>&copy; @DateTime.Now.Year | Budget Calculator | Cliff Browne | @Html.ActionLink("Contact", "Contact", "Home")</p>
         </footer>
     </div>
 

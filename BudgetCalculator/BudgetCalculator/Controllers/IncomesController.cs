@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BudgetCalculator.Models;
+using ProjectYear4.Models;
 
 namespace BudgetCalculator.Controllers
 {
@@ -37,10 +38,13 @@ namespace BudgetCalculator.Controllers
         }
 
         // GET: Incomes/Create
-        public ActionResult Create()
+        public ActionResult Create() // int id
         {
+            //// foreign key id attribute
+            //Income inc = new Income();
+            //inc.BudgetId = id;
             ViewBag.BudgetId = new SelectList(db.Budgets, "BudgetId", "BudgetName");
-            return View();
+            return View(); // inc
         }
 
         // POST: Incomes/Create
@@ -48,8 +52,10 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IncomeId,IncomeAmount,BudgetId")] Income income)
+        public ActionResult Create([Bind(Include = "IncomeId,IncomeAmount,BudgetId")] Income income) // , int id
         {
+            //// foreign key id attribute
+            //income.BudgetId = id;
             if (ModelState.IsValid)
             {
                 db.Incomes.Add(income);
