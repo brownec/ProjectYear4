@@ -43,5 +43,7 @@ namespace BudgetCalculator.Models
         public System.Data.Entity.DbSet<ProjectYear4.Models.UtilityBillExpense> UtilityBillExpenses { get; set; }
 
         public System.Data.Entity.DbSet<BudgetCalculator.Models.Income> Incomes { get; set; }
+
+        public System.Data.Entity.DbSet<BudgetCalculator.Models.TravelExpense> TravelExpenses { get; set; }
     }
 }

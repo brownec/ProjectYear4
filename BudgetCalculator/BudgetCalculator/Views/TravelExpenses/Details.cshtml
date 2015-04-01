@@ -1,0 +1,66 @@
+﻿@model BudgetCalculator.Models.TravelExpense
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TravelExpense</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget.BudgetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budget.BudgetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LuasAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LuasAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxiAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxiAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelOther)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelOther)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TravelExpenseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

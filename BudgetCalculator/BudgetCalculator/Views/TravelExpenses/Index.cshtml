@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BudgetCalculator.Models.TravelExpense>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget.BudgetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LuasAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxiAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TravelOther)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Budget.BudgetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuasAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxiAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TravelOther)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TravelExpenseId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TravelExpenseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TravelExpenseId })
+        </td>
+    </tr>
+}
+
+</table>
