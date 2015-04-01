@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Household Expenditure</h2>
-
 <p>
-    @Html.ActionLink("Add Household Expenses", "Create") |
-    @Html.ActionLink("Home", "Index", "Home")
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
 </p>
+<h3>Household Expenditure</h3>
+
 <table class="table">
     <tr>
         <th>
@@ -75,17 +75,15 @@
         <td>
             <div class="btn-group">
                 <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
-                   row="button" aria-expanded="false">
-                    Household Expenses <span class="caret"></span>
+                   row="button" aria-expanded="false">Select <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>@Html.ActionLink("Edit Household Expenditure", "Edit", new { id = item.HouseholdExpenseId })</li>
-                    <li>@Html.ActionLink("Household Expenditure Details", "Details", new { id = item.HouseholdExpenseId })</li>
-                    <li>@Html.ActionLink("Delete Household Expenditure", "Delete", new { id = item.HouseholdExpenseId })</li>
+                    <li>@Html.ActionLink("Edit Expenditure", "Edit", new { id = item.HouseholdExpenseId })</li>
+                    <li>@Html.ActionLink("Expenditure Details", "Details", new { id = item.HouseholdExpenseId })</li>
+                    <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.HouseholdExpenseId })</li>
                 </ul>
             </div>
         </td>
     </tr>
 }
-
 </table>

@@ -3,17 +3,26 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Utility Bill Expenditure Details</h2>
+<div>
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets") |
+    @Html.ActionLink("Utility Bill Expenditure", "Index")
+</div>
+<h3>Utility Bill Expenditure Details</h3>
 
 <div>
-    
-    <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget.BudgetId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Budget.BudgetId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Budget.BudgetName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Budget.BudgetName)
         </dd>
@@ -21,7 +30,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.Electricity)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Electricity)
         </dd>
@@ -29,7 +37,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.Gas)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Gas)
         </dd>
@@ -37,7 +44,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.RefuseCollection)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.RefuseCollection)
         </dd>
@@ -45,7 +51,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.IrishWater)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.IrishWater)
         </dd>
@@ -53,7 +58,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.TVLicenseAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.TVLicenseAmount)
         </dd>
@@ -61,7 +65,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.PhoneBillAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.PhoneBillAmount)
         </dd>
@@ -69,7 +72,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.BroadbandAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BroadbandAmount)
         </dd>
@@ -77,14 +79,8 @@
         <dt>
             @Html.DisplayNameFor(model => model.UtilityBillExpenseAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.UtilityBillExpenseAmount)
         </dd>
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit Expenses", "Edit", new { id = Model.UtilityBillExpenseId }) |
-    @Html.ActionLink("Back to Utility Bill Expenditure", "Index")
-</p>

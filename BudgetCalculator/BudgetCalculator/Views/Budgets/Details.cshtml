@@ -3,17 +3,25 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Budget Details</h2>
+<div>
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
+</div>
+<h3>Budget Details</h3>
 
 <div>
-    <h4>Details of Saved Budget</h4>
-    <hr />
-    <dl class="dl-horizontal">
+       <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.BudgetUser.LastName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BudgetUser.LastName)
         </dd>
@@ -21,7 +29,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.BudgetName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BudgetName)
         </dd>
@@ -29,14 +36,8 @@
         <dt>
             @Html.DisplayNameFor(model => model.BudgetYear)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BudgetYear)
         </dd>
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BudgetId }) |
-    @Html.ActionLink("Back to Budgets", "Index")
-</p>

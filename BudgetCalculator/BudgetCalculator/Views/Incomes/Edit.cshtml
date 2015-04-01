@@ -3,19 +3,21 @@
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Update Income</h2>
-
+<div>
+    <br/>
+    @Html.ActionLink("Home", "Index") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
+</div>
+<h3>Update Income</h3>
+<h5>Edit Income Amount and click Update Income button to confirm.</h5>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Edit income amount and click Update Income button to confirm.</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IncomeId)
+            @Html.HiddenFor(model => model.IncomeId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.IncomeAmount, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -40,10 +42,6 @@
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to Income", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

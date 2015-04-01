@@ -50,7 +50,8 @@
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Add Income", "Create", "Incomes", new { id = item.BudgetId }, null)</li>
                         <li>@Html.ActionLink("Edit Income", "Edit", "Incomes", new { id = item.BudgetId }, null)</li>
-                        <li>@Html.ActionLink("Delete Income", "Details", "Incomes", new { id = item.BudgetId }, null)</li>
+                        <li>@Html.ActionLink("Income Details", "Details", "Incomes", new { id = item.BudgetId }, null)</li>
+                        <li>@Html.ActionLink("Delete Income", "Delete", "Incomes", new { id = item.BudgetId }, null)</li>
                     </ul>
                 </div>
             </td>

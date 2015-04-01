@@ -3,17 +3,20 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Add Household Expenditure</h2>
-
+<div>
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets") |
+    @Html.ActionLink("Household Expenditure", "Index")
+</div>
+<h3>Add Household Expenditure</h3>
+<h5>Enter Household Expenditure and click Add Expenses button.</h5>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Enter details in fields and click Add Expenses button.</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.RentType, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -79,13 +82,13 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.BudgetId, "BudgetId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.BudgetId)
                 @Html.ValidationMessageFor(model => model.BudgetId, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -94,11 +97,6 @@
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to Household Expenditure", "Index")
-</div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

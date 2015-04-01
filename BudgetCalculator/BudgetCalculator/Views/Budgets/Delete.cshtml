@@ -3,18 +3,26 @@
 @{
     ViewBag.Title = "Delete";
 }
-
-<h2>Delete Budget</h2>
-
-<h3>Are you sure you want to delete this Budget?</h3>
 <div>
-    <h4>Budget</h4>
-    <hr />
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
+</div>
+<h3>Delete Budget</h3>
+<h5>Click Delete Budget button to confirm.</h5>
+
+<div>
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.BudgetUser.LastName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BudgetUser.LastName)
         </dd>
@@ -22,7 +30,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.BudgetName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BudgetName)
         </dd>
@@ -30,19 +37,15 @@
         <dt>
             @Html.DisplayNameFor(model => model.BudgetYear)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.BudgetYear)
         </dd>
-
     </dl>
-
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete Budget" class="btn btn-default" />
-            <input type="submit" value="Back to Budgets" class="btn btn-default" @Html.ActionLink("Back to Budgets", "Index") />
         </div>
     }
 </div>

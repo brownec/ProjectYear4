@@ -3,18 +3,25 @@
 @{
     ViewBag.Title = "Delete";
 }
-
-<h2>Delete Income</h2>
-
-<h3>Are you sure you want to delete Income?</h3>
 <div>
-    <h4>Click Delete Income button to confirm.</h4>
-    <hr />
+    <br />
+    @Html.ActionLink("Home", "Index") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
+</div>
+<h3>Delete Income</h3>
+<h5>Click Delete Income button to confirm.</h5>
+<div>
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget.BudgetId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Budget.BudgetId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Budget.BudgetName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Budget.BudgetName)
         </dd>
@@ -22,25 +29,16 @@
         <dt>
             @Html.DisplayNameFor(model => model.IncomeAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.IncomeAmount)
         </dd>
-
     </dl>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete Income" class="btn btn-default" /> |
-            @Html.ActionLink("Back to Income", "Index")
-        </div>
-
-    @*<div class="col-md-4">
-        <p><a class="btn btn-default" @Html.ActionLink("Budgets", "Index", "Budgets")</a></p>
-    </div>*@
-
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete Income" class="btn btn-default" />
+            </div>
     }
 </div>

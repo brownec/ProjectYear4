@@ -8,8 +8,10 @@ namespace ProjectYear4.Models
 {
     public class Budget
     {
+        [Display(Name="Budget ID")]
         public int BudgetId { get; set; }
 
+        [Display(Name="User ID")]
         public int BudgetUserId { get; set; }
 
         [Display(Name="Budget Name")]
@@ -17,7 +19,7 @@ namespace ProjectYear4.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Budget Year")]
+        [Display(Name = "Budget Date")]
         public DateTime BudgetYear { get; set; }
 
         //public int CarExpenseId { get; set; }

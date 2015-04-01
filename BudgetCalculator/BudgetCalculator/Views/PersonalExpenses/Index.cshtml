@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Personal Expenditure</h2>
-
 <p>
-    @Html.ActionLink("Add Personal Expenses", "Create")
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
 </p>
+<h3>Personal Expenditure</h3>
+
 <table class="table">
     <tr>
         <th>
@@ -68,17 +69,15 @@
         <td>
             <div class="btn-group">
                 <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
-                   row="button" aria-expanded="false">
-                    Personal Expenses <span class="caret"></span>
+                   row="button" aria-expanded="false">Select <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>@Html.ActionLink("Edit Personal Expenditure", "Edit", new { id = item.PersonalExpenseId })</li>
-                    <li>@Html.ActionLink("Personal Expenditure Details", "Details", new { id = item.PersonalExpenseId })</li>
-                    <li>@Html.ActionLink("Delete Personal Expenditure", "Delete", new { id = item.PersonalExpenseId })</li>
+                    <li>@Html.ActionLink("Edit Expenditure", "Edit", new { id = item.PersonalExpenseId })</li>
+                    <li>@Html.ActionLink("Expenditure Details", "Details", new { id = item.PersonalExpenseId })</li>
+                    <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.PersonalExpenseId })</li>
                 </ul>
             </div>
         </td>
     </tr>
 }
-
 </table>

@@ -3,17 +3,18 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Add Income</h2>
-
-
+<div>
+    <br />
+    @Html.ActionLink("Home", "Index") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
+</div>
+<h3>Add Income</h3>
+<h5>Add Income Amount and click Add Income button to confirm.</h5>
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Add income amount and click Add Income button to confirm.</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.IncomeAmount, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -38,11 +39,6 @@
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to Home", "Index") | 
-    @Html.ActionLink("Go to Budgets", "Index", "Budgets")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

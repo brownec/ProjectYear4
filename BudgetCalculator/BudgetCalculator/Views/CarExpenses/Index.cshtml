@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Car Expenditure</h2>
-
 <p>
-    @Html.ActionLink("Add Car Expenses", "Create") | 
-    @Html.ActionLink("Home", "Index", "Home")
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
 </p>
+<h3>Car Expenditure</h3>
+
 <table class="table">
     <tr>
         <th>
@@ -39,47 +39,46 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Budget.BudgetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarTax)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarInsurance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Maintenance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FuelType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FuelAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NctTest)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NctAmount)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget.BudgetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarInsurance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maintenance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NctTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NctAmount)
+            </td>
 
-        <td>
-            <div class="btn-group">
-                <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
-                   row="button" aria-expanded="false">
-                    Car Expenses <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>@Html.ActionLink("Edit Expenses", "Edit", new { id = item.CarExpenseId })</li>
-                    <li>@Html.ActionLink("Car Expenditure Details", "Details", new { id = item.CarExpenseId })</li>
-                    <li>@Html.ActionLink("Delete Car Expenditure", "Delete", new { id = item.CarExpenseId })</li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-}
-
+            <td>
+                <div class="btn-group">
+                    <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
+                       row="button" aria-expanded="false">Select <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Edit Expenditure", "Edit", new { id = item.CarExpenseId })</li>
+                        <li>@Html.ActionLink("Expenditure Details", "Details", new { id = item.CarExpenseId })</li>
+                        <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.CarExpenseId })</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
 </table>

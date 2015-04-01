@@ -3,18 +3,27 @@
 @{
     ViewBag.Title = "Delete";
 }
+<p>
+    <br />
+    @Html.ActionLink("Home", "Index") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets") |
+    @Html.ActionLink("Household Expenditure", "Index")
+</p>
+<h3>Delete Household Expenditure</h3>
+<h5>Click Delete Expenses button to confirm.</h5>
 
-<h2>Delete Household Expenditure</h2>
-
-<h3>Are you sure you want to delete these Expenses?</h3>
 <div>
-    <h4>Click Delete Expenses button to confirm.</h4>
-    <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget.BudgetId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Budget.BudgetId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Budget.BudgetName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Budget.BudgetName)
         </dd>
@@ -22,7 +31,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.RentType)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.RentType)
         </dd>
@@ -30,7 +38,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.RentAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.RentAmount)
         </dd>
@@ -38,7 +45,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.GroceryAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.GroceryAmount)
         </dd>
@@ -46,7 +52,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.ClothingAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ClothingAmount)
         </dd>
@@ -54,7 +59,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.EducationFeesAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.EducationFeesAmount)
         </dd>
@@ -62,7 +66,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.SchoolBooksAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.SchoolBooksAmount)
         </dd>
@@ -70,7 +73,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.MedicalBillAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.MedicalBillAmount)
         </dd>
@@ -78,19 +80,15 @@
         <dt>
             @Html.DisplayNameFor(model => model.HouseholdOtherAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.HouseholdOtherAmount)
         </dd>
-
     </dl>
-
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete Expenses" class="btn btn-default" /> |
-            @Html.ActionLink("Back to Household Expenditure", "Index")
+            <input type="submit" value="Delete Expenses" class="btn btn-default" />
         </div>
     }
 </div>

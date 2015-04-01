@@ -3,17 +3,26 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Personal Expenditure Details</h2>
+<div>
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets") |
+    @Html.ActionLink("Personal Expenditure", "Index")
+</div>
+<h3>Personal Expenditure Details</h3>
 
 <div>
-    
-    <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget.BudgetId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Budget.BudgetId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Budget.BudgetName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Budget.BudgetName)
         </dd>
@@ -21,7 +30,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.SocialAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.SocialAmount)
         </dd>
@@ -29,7 +37,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.GymMembershipAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.GymMembershipAmount)
         </dd>
@@ -37,7 +44,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.SportsFeeAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.SportsFeeAmount)
         </dd>
@@ -45,7 +51,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.HolidayAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.HolidayAmount)
         </dd>
@@ -53,7 +58,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.SavingsAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.SavingsAmount)
         </dd>
@@ -61,7 +65,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.LoanRepaymentAmount)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.LoanRepaymentAmount)
         </dd>
@@ -69,14 +72,8 @@
         <dt>
             @Html.DisplayNameFor(model => model.PersonalExpenseOther)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.PersonalExpenseOther)
         </dd>
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit Expenses", "Edit", new { id = Model.PersonalExpenseId }) |
-    @Html.ActionLink("Back to Personal Expenditure", "Index")
-</p>
