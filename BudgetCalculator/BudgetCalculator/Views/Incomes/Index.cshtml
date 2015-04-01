@@ -3,14 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Income</h2>
-
 <p>
-    @Html.ActionLink("Home", "Index", "Budgets")
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")
 </p>
+<h3>Income</h3>
+
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget.BudgetId)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Budget.BudgetName)
         </th>
@@ -23,6 +27,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Budget.BudgetId)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Budget.BudgetName)
         </td>
         <td>
@@ -31,9 +38,8 @@
 
         <td>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle, btn btn-info btn-large" data-toggle="dropdown"
-                   row="button" aria-expanded="false">
-                    Income Action <span class="caret"></span>
+                <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
+                   row="button" aria-expanded="false">Select <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>@Html.ActionLink("Edit Income", "Edit", new { id = item.IncomeId })</li>
@@ -43,13 +49,6 @@
                 </ul>
             </div>
         </td>
-
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IncomeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IncomeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IncomeId })
-        </td>*@
     </tr>
 }
-
 </table>
