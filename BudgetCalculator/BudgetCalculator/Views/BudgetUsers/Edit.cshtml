@@ -3,20 +3,21 @@
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit User</h2>
-<h5>Edit User details and click Save Changes button when done.</h5>
 <p>
+    <br />
     @Html.ActionLink("Home", "Index", "Home") |
     @Html.ActionLink("Users", "Index", "BudgetUsers")
 </p>
+<h3>Edit User</h3>
+<h5>Edit User details and click Save Changes button when done.</h5>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-       <hr />
+       @*<hr />*@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.BudgetUserId)
 

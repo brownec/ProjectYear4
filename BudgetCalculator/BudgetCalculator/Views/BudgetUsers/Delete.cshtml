@@ -3,14 +3,16 @@
 @{
     ViewBag.Title = "Delete";
 }
+<p>
+    <br />
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("Users", "Index", "BudgetUsers")
+</p>
+<h3>Delete User</h3>
 
-<h2>Delete User</h2>
-
-<h3>Are you sure you want to delete this User?</h3>
 <div>
-    
-    <hr />
-    <dl class="dl-horizontal">
+   @*<hr />*@
+    <dl class="dl-horizontal" style="text-align:left">
         <dt>
             @Html.DisplayNameFor(model => model.LastName)
         </dt>
@@ -95,10 +97,9 @@
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
-
+    <h5>Click Delete User button to remove user.</h5>
         <div class="form-actions no-color">
-            <input type="submit" value="Delete User" class="btn btn-default" /> |
-            @Html.ActionLink("Back to Users", "Index")
+            <input type="submit" value="Delete User" class="btn btn-default" />
         </div>
     }
 </div>

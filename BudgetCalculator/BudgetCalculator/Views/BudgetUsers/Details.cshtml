@@ -3,15 +3,15 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>User Details</h2>
 <p>
+    <br />
     @Html.ActionLink("Home", "Index", "Home") |
     @Html.ActionLink("Users", "Index", "BudgetUsers")
 </p>
+<h3>User Details</h3>
+
 <div>
-    
-    <hr />
+    @*<hr />*@
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.LastName)
@@ -92,7 +92,6 @@
         <dd>
             @Html.DisplayFor(model => model.ContactNo)
         </dd>
-
     </dl>
 </div>
 @*<p>

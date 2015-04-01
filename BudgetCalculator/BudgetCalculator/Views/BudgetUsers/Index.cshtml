@@ -3,10 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
+<p>
+    <br />
+        @Html.ActionLink("Home", "Index", "Home")
+</p>
+<h3>Users</h3>
 
-<h2>Users</h2>
-
-<table class="table">
+<table class="table" style="text-align:left">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.LastName)
