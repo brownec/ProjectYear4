@@ -6,7 +6,6 @@
 
 <h2>Add Car Expenditure</h2>
 
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -88,7 +87,8 @@
 }
 
 <div>
-    @Html.ActionLink("Back to Car Expenditure", "Index")
+    @Html.ActionLink("Back to Car Expenditure", "Index") |
+    @Html.ActionLink("Back to Budgets", "Index", "Budgets")
 </div>
 
 @section Scripts {

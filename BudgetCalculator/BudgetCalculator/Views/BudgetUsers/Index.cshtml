@@ -4,11 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>User Home</h2>
+<h2>Users</h2>
 
-<p>
-    
-</p>
 <table class="table">
     <tr>
         <th>
@@ -17,9 +14,9 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.AddressLine1)
         </th>
@@ -32,12 +29,12 @@
         <th>
             @Html.DisplayNameFor(model => model.County)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Country)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PostCode)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.ContactNo)
         </th>
@@ -52,9 +49,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.AddressLine1)
         </td>
@@ -67,20 +64,30 @@
         <td>
             @Html.DisplayFor(modelItem => item.County)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Country)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PostCode)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.ContactNo)
         </td>
+
         <td>
-            @Html.ActionLink("Add New Budget", "Create","Budgets", new { id=item.BudgetUserId },null)
-            @*@Html.ActionLink("Edit User", "Edit", new { id=item.BudgetUserId }) |
-            @Html.ActionLink("User Details", "Details", new { id=item.BudgetUserId }) |
-            @Html.ActionLink("Delete User", "Delete", new { id=item.BudgetUserId })*@
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
+                   row="button" aria-expanded="false">
+                    Select <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Add New Budget", "Create", "Budgets", new { id = item.BudgetUserId }, null)</li>
+                    <li>@Html.ActionLink("My Budgets", "Index", "Budgets", new { id=item.BudgetUserId},null)</li>
+                    <li>@Html.ActionLink("Edit User", "Edit", new { id = item.BudgetUserId })</li>
+                    <li>@Html.ActionLink("User Details", "Details", new { id = item.BudgetUserId })</li>
+                    <li>@Html.ActionLink("Delete User", "Delete", new { id = item.BudgetUserId })</li>
+                </ul>
+            </div>
         </td>
     </tr>
 }

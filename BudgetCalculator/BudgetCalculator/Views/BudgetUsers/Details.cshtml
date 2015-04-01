@@ -5,7 +5,10 @@
 }
 
 <h2>User Details</h2>
-
+<p>
+    @Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("Users", "Index", "BudgetUsers")
+</p>
 <div>
     
     <hr />
@@ -92,7 +95,7 @@
 
     </dl>
 </div>
-<p>
+@*<p>
     @Html.ActionLink("Edit User", "Edit", new { id = Model.BudgetUserId }) |
     @Html.ActionLink("Back to Users", "Index")
-</p>
+</p>*@

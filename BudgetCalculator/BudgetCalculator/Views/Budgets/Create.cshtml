@@ -48,7 +48,9 @@
 }
 
 <div>
-    @Html.ActionLink("Back to Budgets", "Index")
+    @Html.ActionLink("Home", "Index", "Budgets") |
+    @Html.ActionLink("Users", "Index", "BudgetUsers") |
+    @Html.ActionLink("My Budgets", "Index")
 </div>
 
 @section Scripts {
