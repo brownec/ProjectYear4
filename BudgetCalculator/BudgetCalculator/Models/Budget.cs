@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetCalculator.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -37,5 +38,10 @@ namespace ProjectYear4.Models
         public virtual ICollection<PersonalExpense> PersonalExpense { get; set; }
 
         public virtual ICollection<UtilityBillExpense> UtilityBillExpenses { get; set; }
+
+        public virtual ICollection<TravelExpense> TravelExpense { get; set; }
+
+        public virtual ICollection<Income> Income { get; set; }
+
     }
 }

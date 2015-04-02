@@ -228,6 +228,10 @@
     <Compile Include="Migrations\201504012217134_01April2015c.Designer.cs">
       <DependentUpon>201504012217134_01April2015c.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504020957250_02April2015a.cs" />
+    <Compile Include="Migrations\201504020957250_02April2015a.Designer.cs">
+      <DependentUpon>201504020957250_02April2015a.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
@@ -339,6 +343,8 @@
     <Content Include="Views\TravelExpenses\Details.cshtml" />
     <Content Include="Views\TravelExpenses\Edit.cshtml" />
     <Content Include="Views\TravelExpenses\Index.cshtml" />
+    <Content Include="Views\Budgets\Summary.cshtml" />
+    <Content Include="Views\Budgets\Forecast.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -371,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504012217134_01April2015c.resx">
       <DependentUpon>201504012217134_01April2015c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504020957250_02April2015a.resx">
+      <DependentUpon>201504020957250_02April2015a.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

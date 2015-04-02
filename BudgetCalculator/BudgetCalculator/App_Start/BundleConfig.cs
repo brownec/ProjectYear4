@@ -24,7 +24,7 @@ namespace BudgetCalculator
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrapSimplex.css",
                       "~/Content/site.css"));
         }
     }

@@ -124,6 +124,26 @@ namespace BudgetCalculator.Controllers
             return RedirectToAction("Index");
         }
 
+        // Budget Summary View
+        public ActionResult Summary(int? id)
+        {
+            // Calculation here
+            Budget b = new Budget();
+            b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
+            
+            return View();
+        }
+
+        // Budget Forecast View
+        public ActionResult Forecast(int? id)
+        {
+            // Calculation here
+            Budget b = new Budget();
+            b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
+
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

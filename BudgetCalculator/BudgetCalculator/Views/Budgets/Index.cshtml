@@ -33,8 +33,8 @@
                 @Html.DisplayFor(modelItem => item.BudgetId)
             </td>
             @*<td>
-                @Html.DisplayFor(modelItem => item.BudgetUser.LastName)
-            </td>*@
+                    @Html.DisplayFor(modelItem => item.BudgetUser.LastName)
+                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.BudgetName)
             </td>
@@ -45,7 +45,8 @@
             <td>
                 <div class="btn-group">
                     <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
-                       row="button" aria-expanded="false">Income <span class="caret"></span>
+                       row="button" aria-expanded="false">
+                        Income <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Add Income", "Create", "Incomes", new { id = item.BudgetId }, null)</li>
@@ -59,7 +60,8 @@
             <td>
                 <div class="btn-group">
                     <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
-                       row="button" aria-expanded="false">Expenses <span class="caret"></span>
+                       row="button" aria-expanded="false">
+                        Expenses <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Car", "Create", "CarExpenses", new { id = item.BudgetId }, null)</li>
@@ -74,7 +76,22 @@
             <td>
                 <div class="btn-group">
                     <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
-                       row="button" aria-expanded="false">Select <span class="caret"></span>
+                       row="button" aria-expanded="false">
+                        Analysis <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Budget Summary", "Summary", new { id = item.BudgetId })</li>
+                        <li>@Html.ActionLink("Budget Forecast", "Summary", new { id = item.BudgetId })</li>
+                        @*<li>@Html.ActionLink("Delete Budget", "Delete", new { id = item.BudgetId })</li>*@
+                    </ul>
+                </div>
+            </td>
+
+            <td>
+                <div class="btn-group">
+                    <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
+                       row="button" aria-expanded="false">
+                        Select <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Edit Budget", "Edit", new { id = item.BudgetId })</li>
@@ -83,7 +100,6 @@
                     </ul>
                 </div>
             </td>
-
         </tr>
     }
 </table>
