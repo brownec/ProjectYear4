@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProjectYear4.Models.Budget>
+﻿@model IEnumerable<BudgetCalculator.Models.Budget>
 
 @{
     ViewBag.Title = "Index";
@@ -81,7 +81,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Budget Summary", "Summary", new { id = item.BudgetId })</li>
-                        <li>@Html.ActionLink("Budget Forecast", "Summary", new { id = item.BudgetId })</li>
+                        <li>@Html.ActionLink("Budget Forecast", "Forecast", new { id = item.BudgetId })</li>
                         @*<li>@Html.ActionLink("Delete Budget", "Delete", new { id = item.BudgetId })</li>*@
                     </ul>
                 </div>

@@ -1,11 +1,10 @@
-﻿// using ProjectYear4.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ProjectYear4.Models
+namespace BudgetCalculator.Models
 {
     public enum FuelType { Petrol, Diesel };
     public enum NctTest { [Display(Name = "NCT Full")] Full, [Display(Name = "NCT Retest")] Retest };

@@ -30,17 +30,17 @@ namespace BudgetCalculator.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<ProjectYear4.Models.Budget> Budgets { get; set; }
+        public System.Data.Entity.DbSet<BudgetCalculator.Models.Budget> Budgets { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectYear4.Models.BudgetUser> BudgetUsers { get; set; }
+        public System.Data.Entity.DbSet<BudgetCalculator.Models.BudgetUser> BudgetUsers { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectYear4.Models.CarExpense> CarExpenses { get; set; }
+        public System.Data.Entity.DbSet<BudgetCalculator.Models.CarExpense> CarExpenses { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectYear4.Models.HouseholdExpense> HouseholdExpenses { get; set; }
+        public System.Data.Entity.DbSet<BudgetCalculator.Models.HouseholdExpense> HouseholdExpenses { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectYear4.Models.PersonalExpense> PersonalExpenses { get; set; }
+        public System.Data.Entity.DbSet<BudgetCalculator.Models.PersonalExpense> PersonalExpenses { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectYear4.Models.UtilityBillExpense> UtilityBillExpenses { get; set; }
+        public System.Data.Entity.DbSet<BudgetCalculator.Models.UtilityBillExpense> UtilityBillExpenses { get; set; }
 
         public System.Data.Entity.DbSet<BudgetCalculator.Models.Income> Incomes { get; set; }
 

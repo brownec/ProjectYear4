@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ProjectYear4.Models
+namespace BudgetCalculator.Models
 {
     public enum RentType { Rent, Mortgage };
     public class HouseholdExpense
