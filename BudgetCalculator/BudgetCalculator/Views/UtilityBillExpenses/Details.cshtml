@@ -5,9 +5,12 @@
 }
 <div>
     <br />
-    @Html.ActionLink("Home", "Index", "Home") |
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Budgets", "Index", "Budgets")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Utility Bill Expenditure", "Index")</a>
+    @*@Html.ActionLink("Home", "Index", "Home") |
     @Html.ActionLink("My Budgets", "Index", "Budgets") |
-    @Html.ActionLink("Utility Bill Expenditure", "Index")
+    @Html.ActionLink("Utility Bill Expenditure", "Index")*@
 </div>
 <h3>Utility Bill Expenditure Details</h3>
 

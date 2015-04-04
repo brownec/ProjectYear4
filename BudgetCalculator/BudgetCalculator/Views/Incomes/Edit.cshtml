@@ -5,9 +5,12 @@
 }
 <div>
     <br/>
-    @Html.ActionLink("Home", "Index") |
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Budgets", "Index", "Budgets")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Income", "Index")</a>
+    @*@Html.ActionLink("Home", "Index") |
     @Html.ActionLink("My Budgets", "Index", "Budgets") |
-    @Html.ActionLink("Income", "Index", "Incomes")
+    @Html.ActionLink("Income", "Index", "Incomes")*@
 </div>
 <h3>Update Income</h3>
 <h5>Edit Income Amount and click Update Income button to confirm.</h5>
@@ -38,12 +41,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Update Income" class="btn btn-default" />
+                <input type="submit" value="Update Income" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

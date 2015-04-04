@@ -37,13 +37,13 @@ namespace BudgetCalculator.Controllers
         }
 
         // GET: Incomes/Create
-        public ActionResult Create() // int id
+        public ActionResult Create(int id) // int id
         {
-            //// foreign key id attribute
-            //Income inc = new Income();
-            //inc.BudgetId = id;
-            ViewBag.BudgetId = new SelectList(db.Budgets, "BudgetId", "BudgetName");
-            return View(); // inc
+            // foreign key id attribute
+            Income inc = new Income();
+            inc.BudgetId = id;
+            // ViewBag.BudgetId = new SelectList(db.Budgets, "BudgetId", "BudgetName");
+            return View(inc); // inc
         }
 
         // POST: Incomes/Create
@@ -51,10 +51,10 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IncomeId,IncomeAmount,BudgetId")] Income income) // , int id
+        public ActionResult Create([Bind(Include = "IncomeId,IncomeAmount,BudgetId")] Income income, int id) // , int id
         {
-            //// foreign key id attribute
-            //income.BudgetId = id;
+            // foreign key id attribute
+            income.BudgetId = id;
             if (ModelState.IsValid)
             {
                 db.Incomes.Add(income);

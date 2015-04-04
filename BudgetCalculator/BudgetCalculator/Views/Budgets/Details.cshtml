@@ -5,8 +5,10 @@
 }
 <div>
     <br />
-    @Html.ActionLink("Home", "Index", "Home") |
-    @Html.ActionLink("My Budgets", "Index", "Budgets")
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Budgets", "Index", "Budgets")</a>
+    @*@Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")*@
 </div>
 <h3>Budget Details</h3>
 

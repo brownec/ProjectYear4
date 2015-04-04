@@ -5,9 +5,12 @@
 }
 <p>
     <br />
-    @Html.ActionLink("Home", "Index") |
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Budgets", "Index", "Budgets")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Household Expenditure", "Index")</a>
+    @*@Html.ActionLink("Home", "Index") |
     @Html.ActionLink("My Budgets", "Index", "Budgets") |
-    @Html.ActionLink("Household Expenditure", "Index")
+    @Html.ActionLink("Household Expenditure", "Index")*@
 </p>
 <h3>Delete Household Expenditure</h3>
 <h5>Click Delete Expenses button to confirm.</h5>
@@ -88,7 +91,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete Expenses" class="btn btn-default" />
+            <input type="submit" value="Delete Expenses" class="btn btn-danger" />
         </div>
     }
 </div>

@@ -5,8 +5,10 @@
 }
 <p>
     <br />
-    @Html.ActionLink("Home", "Index", "Home") |
-    @Html.ActionLink("Users", "Index", "BudgetUsers")
+    <a class="btn btn-primary btn-xs"  @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Users", "Index", "BudgetUsers")</a>
+    @*@Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("Users", "Index", "BudgetUsers")*@
 </p>
 <h3>My Budgets</h3>
 
@@ -47,7 +49,7 @@
                     <a class="btn btn-info" href="#">Income</a>
                     <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Add Income", "Create", "Incomes", new { id = item.BudgetId }, null)</li>
+                        <li>@Html.ActionLink("Add Income", "Index", "Incomes", new { id = item.BudgetId }, null)</li>
                         @*<li>@Html.ActionLink("Edit Income", "Edit", "Incomes", new { id = item.BudgetId }, null)</li>
                         <li>@Html.ActionLink("Income Details", "Details", "Incomes", new { id = item.BudgetId }, null)</li>
                         <li>@Html.ActionLink("Delete Income", "Delete", "Incomes", new { id = item.BudgetId }, null)</li>*@

@@ -5,9 +5,11 @@
 }
 <p>
     <br />
-    @Html.ActionLink("Home", "Index", "Home") |
-    @Html.ActionLink("My Budgets", "Index", "Budgets")
-</p>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Budgets", "Index", "Budgets")</a>
+    @*@Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets") |*@
+    </p>
 <h3>Income</h3>
 
 <table class="table">
@@ -38,6 +40,18 @@
 
         <td>
             <div class="btn-group">
+                <a class="btn btn-info" href="#">Select</a>
+                <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Add Income", "Create", new { id = item.IncomeId })</li>
+                    <li>@Html.ActionLink("Edit Income", "Edit", new { id = item.IncomeId })</li>
+                    <li>@Html.ActionLink("Income Details", "Details", new { id = item.IncomeId })</li>
+                    <li>@Html.ActionLink("Delete Income", "Delete", new { id = item.IncomeId })</li>
+                </ul>
+            </div>
+        </td>
+        @*<td>
+            <div class="btn-group">
                 <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
                    row="button" aria-expanded="false">Select <span class="caret"></span>
                 </a>
@@ -45,10 +59,10 @@
                     <li>@Html.ActionLink("Edit Income", "Edit", new { id = item.IncomeId })</li>
                     <li>@Html.ActionLink("Income Details", "Details", new { id = item.IncomeId })</li>
                     <li>@Html.ActionLink("Delete Income", "Delete", new { id = item.IncomeId })</li>
-
                 </ul>
             </div>
-        </td>
+        </td>*@
+
     </tr>
 }
 </table>

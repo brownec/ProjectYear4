@@ -5,8 +5,10 @@
 }
 <p>
     <br />
-    @Html.ActionLink("Home", "Index", "Home") |
-    @Html.ActionLink("My Budgets", "Index", "Budgets")
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("My Budgets", "Index", "Budgets")</a>
+    @*@Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("My Budgets", "Index", "Budgets")*@
 </p>
 <h3>Travel Expenditure</h3>
 
@@ -56,6 +58,17 @@
 
         <td>
             <div class="btn-group">
+                <a class="btn btn-info" href="#">Select</a>
+                <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit Expenditure", "Edit", new { id = item.TravelExpenseId })</li>
+                    <li>@Html.ActionLink("Expenditure Details", "Details", new { id = item.TravelExpenseId })</li>
+                    <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.TravelExpenseId })</li>
+                </ul>
+            </div>
+        </td>
+        @*<td>
+            <div class="btn-group">
                 <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
                    row="button" aria-expanded="false">Select <span class="caret"></span>
                 </a>
@@ -65,7 +78,8 @@
                     <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.TravelExpenseId })</li>
                 </ul>
             </div>
-        </td>
+        </td>*@
+
     </tr>
 }
 </table>

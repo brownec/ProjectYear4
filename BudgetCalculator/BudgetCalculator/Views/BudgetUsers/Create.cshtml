@@ -5,7 +5,8 @@
 }
 <div>
     <br/>
-    @Html.ActionLink("Back to Users", "Index")
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Users", "Index")</a>
+    @*@Html.ActionLink("Back to Users", "Index")*@
 </div>
 <h3>Add New User</h3>
 <h4>Enter in User Details and click Add User button when done.</h4>
@@ -99,7 +100,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add User" class="btn btn-default" />
+                <input type="submit" value="Add User" class="btn btn-success" />
             </div>
         </div>
     </div>

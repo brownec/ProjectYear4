@@ -5,8 +5,10 @@
 }
 <p>
     <br />
-    @Html.ActionLink("Home", "Index", "Home") |
-    @Html.ActionLink("Users", "Index", "BudgetUsers")
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
+    <a class="btn btn-primary btn-xs" @Html.ActionLink("Users", "Index", "BudgetUsers")</a>
+    @*@Html.ActionLink("Home", "Index", "Home") |
+    @Html.ActionLink("Users", "Index", "BudgetUsers")*@
 </p>
 <h3>Edit User</h3>
 <h5>Edit User details and click Save Changes button when done.</h5>
@@ -103,12 +105,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save Changes" class="btn btn-default" />
+                <input type="submit" value="Save Changes" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

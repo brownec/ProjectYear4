@@ -5,9 +5,12 @@
 }
 <div>
     <br/>
-    @Html.ActionLink("Home", "Index", "Budgets") |
+    <a class="btn btn-primary" @Html.ActionLink("Home", "Index", "Budgets")</a>
+    <a class="btn btn-primary" @Html.ActionLink("Users", "Index", "BudgetUsers")</a>
+    <a class="btn btn-primary" @Html.ActionLink("My Budgets", "Index")</a>
+    @*@Html.ActionLink("Home", "Index", "Budgets") |
     @Html.ActionLink("Users", "Index", "BudgetUsers") |
-    @Html.ActionLink("My Budgets", "Index")
+    @Html.ActionLink("My Budgets", "Index")*@
 </div>
 
 <h3>Add New Budget</h3>
@@ -46,7 +49,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add Budget" class="btn btn-default" />
+                <input type="submit" value="Add Budget" class="btn btn-success" />
             </div>
         </div>
     </div>
