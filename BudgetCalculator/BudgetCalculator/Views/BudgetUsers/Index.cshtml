@@ -76,8 +76,20 @@
         <td>
             @Html.DisplayFor(modelItem => item.ContactNo)
         </td>
-
         <td>
+            <div class="btn-group">
+                <a class="btn btn-info" href="#">Select</a>
+                <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Add New Budget", "Create", "Budgets", new { id = item.BudgetUserId }, null)</li>
+                    <li>@Html.ActionLink("My Budgets", "Index", "Budgets", new { id = item.BudgetUserId }, null)</li>
+                    <li>@Html.ActionLink("Edit User", "Edit", new { id = item.BudgetUserId })</li>
+                    <li>@Html.ActionLink("User Details", "Details", new { id = item.BudgetUserId })</li>
+                    <li>@Html.ActionLink("Delete User", "Delete", new { id = item.BudgetUserId })</li>
+                </ul>
+            </div>
+        </td>
+        @*<td>
             <div class="btn-group">
                 <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
                    row="button" aria-expanded="false">
@@ -91,7 +103,8 @@
                     <li>@Html.ActionLink("Delete User", "Delete", new { id = item.BudgetUserId })</li>
                 </ul>
             </div>
-        </td>
+        </td>*@
+
     </tr>
 }
 
