@@ -70,6 +70,17 @@
             </td>
 
             <td>
+                <div class="btn-group btn-sm">
+                    <a class="btn btn-info" href="#">Select</a>
+                    <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Edit Expenditure", "Edit", new { id = item.CarExpenseId })</li>
+                        <li>@Html.ActionLink("Expenditure Details", "Details", new { id = item.CarExpenseId })</li>
+                        <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.CarExpenseId })</li>
+                    </ul>
+                </div>
+            </td>
+            @*<td>
                 <div class="btn-group">
                     <a href="#" class="dropdown-toggle, btn btn-info btn-sm" data-toggle="dropdown"
                        row="button" aria-expanded="false">Select <span class="caret"></span>
@@ -80,7 +91,8 @@
                         <li>@Html.ActionLink("Delete Expenditure", "Delete", new { id = item.CarExpenseId })</li>
                     </ul>
                 </div>
-            </td>
+            </td>*@
+
         </tr>
     }
 </table>
