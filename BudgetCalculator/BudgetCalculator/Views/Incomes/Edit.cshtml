@@ -24,10 +24,18 @@
             @Html.HiddenFor(model => model.IncomeId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IncomeAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PrimaryIncomeAmount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IncomeAmount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IncomeAmount, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.PrimaryIncomeAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrimaryIncomeAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AdditionalIncomeAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AdditionalIncomeAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AdditionalIncomeAmount, "", new { @class = "text-danger" })
             </div>
         </div>
 

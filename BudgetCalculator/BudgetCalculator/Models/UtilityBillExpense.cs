@@ -11,27 +11,35 @@ namespace BudgetCalculator.Models
         [Display(Name = "Utility Bill Expense ID")]
         public int UtilityBillExpenseId { get; set; }
 
-        public double Electricity { get; set; }
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        public double? Electricity { get; set; }
 
-        public double Gas { get; set; }
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        public double? Gas { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Refuse/Waste")]
-        public double RefuseCollection { get; set; }
+        public double? RefuseCollection { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Irish Water")]
-        public double IrishWater { get; set; }
+        public double? IrishWater { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "TV")]
-        public double TVLicenseAmount { get; set; }
+        public double? TVAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Phone")]
-        public double PhoneBillAmount { get; set; }
+        public double? PhoneBillAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Broadband")]
-        public double BroadbandAmount { get; set; }
+        public double? BroadbandAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Utility Bill Other")]
-        public double UtilityBillExpenseAmount { get; set; }
+        public double? UtilityBillExpenseAmount { get; set; }
 
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }

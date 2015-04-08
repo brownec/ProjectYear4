@@ -11,26 +11,33 @@ namespace BudgetCalculator.Models
         [Display(Name = "Personal Expense ID")]
         public int PersonalExpenseId { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Social")]
-        public double SocialAmount { get; set; }
+        public double? SocialAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Gym Membership")]
-        public double GymMembershipAmount { get; set; }
+        public double? GymMembershipAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Sports Membership")]
-        public double SportsFeeAmount { get; set; }
+        public double? SportsFeeAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Holidays")]
-        public double HolidayAmount { get; set; }
+        public double? HolidayAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Savings")]
-        public double SavingsAmount { get; set; }
+        public double? SavingsAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Loan Repayment")]
-        public double LoanRepaymentAmount { get; set; }
+        public double? LoanRepaymentAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Display(Name = "Personal Other")]
-        public double PersonalExpenseOther { get; set; }
+        public double? PersonalExpenseOther { get; set; }
 
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }

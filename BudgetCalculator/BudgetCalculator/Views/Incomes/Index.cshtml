@@ -21,9 +21,11 @@
             @Html.DisplayNameFor(model => model.Budget.BudgetName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IncomeAmount)
+            @Html.DisplayNameFor(model => model.PrimaryIncomeAmount)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdditionalIncomeAmount)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -35,9 +37,11 @@
             @Html.DisplayFor(modelItem => item.Budget.BudgetName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IncomeAmount)
+            @Html.DisplayFor(modelItem => item.PrimaryIncomeAmount)
         </td>
-
+        <td>
+            @Html.DisplayFor(modelItem => item.AdditionalIncomeAmount)
+        </td>
         <td>
             <div class="btn-group btn-sm">
                 <a class="btn btn-info" href="#">Select</a>
