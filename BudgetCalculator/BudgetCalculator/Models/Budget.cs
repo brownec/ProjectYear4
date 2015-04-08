@@ -18,10 +18,22 @@ namespace BudgetCalculator.Models
         [Display(Name="Budget Name")]
         public String BudgetName { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Budget Date")]
-        public DateTime BudgetYear { get; set; }
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[Display(Name = "Budget Start Date")]
+        //public DateTime BudgetYear { get; set; }
+
+        // Budget Start Date - Nullable
+        [Required]
+        [DataType(DataType.Date, ErrorMessage = "Please enter a valid date in the format dd/mm/yyyy")]
+        [Display(Name = "Budget Start Date")]
+        public DateTime? BudgetStartDate { get; set; }
+
+        // Budget End Date - Nullable
+        [Required]
+        [DataType(DataType.Date, ErrorMessage = "Please enter a valid date in the format dd/mm/yyyy")]
+        [Display(Name = "Budget End Date")]
+        public DateTime? BudgetEndDate { get; set; }
 
         //public int CarExpenseId { get; set; }
         //public int UtilityBillExpenseId { get; set; }

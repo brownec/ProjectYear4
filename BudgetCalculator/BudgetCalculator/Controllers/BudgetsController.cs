@@ -50,7 +50,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetYear")] Budget budget, int id)
+        public ActionResult Create([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetStartDate, BudgetEndDate")] Budget budget, int id)
         {
             budget.BudgetUserId = id;
             if (ModelState.IsValid)
@@ -85,7 +85,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetYear")] Budget budget)
+        public ActionResult Edit([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetStartDate, BudgetEndDate")] Budget budget)
         {
             if (ModelState.IsValid)
             {
@@ -130,6 +130,8 @@ namespace BudgetCalculator.Controllers
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
             
+
+
             return View();
         }
 

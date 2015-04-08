@@ -236,6 +236,38 @@
     <Compile Include="Migrations\201504021407310_02April2015c.Designer.cs">
       <DependentUpon>201504021407310_02April2015c.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504071152036_07April2015a.cs" />
+    <Compile Include="Migrations\201504071152036_07April2015a.Designer.cs">
+      <DependentUpon>201504071152036_07April2015a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504081121409_08April2015a.cs" />
+    <Compile Include="Migrations\201504081121409_08April2015a.Designer.cs">
+      <DependentUpon>201504081121409_08April2015a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504081131251_08April2015b.cs" />
+    <Compile Include="Migrations\201504081131251_08April2015b.Designer.cs">
+      <DependentUpon>201504081131251_08April2015b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504081401226_08April2015c.cs" />
+    <Compile Include="Migrations\201504081401226_08April2015c.Designer.cs">
+      <DependentUpon>201504081401226_08April2015c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504081440196_08April2015d.cs" />
+    <Compile Include="Migrations\201504081440196_08April2015d.Designer.cs">
+      <DependentUpon>201504081440196_08April2015d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504081449117_08April2015e.cs" />
+    <Compile Include="Migrations\201504081449117_08April2015e.Designer.cs">
+      <DependentUpon>201504081449117_08April2015e.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504081459251_08April2015f.cs" />
+    <Compile Include="Migrations\201504081459251_08April2015f.Designer.cs">
+      <DependentUpon>201504081459251_08April2015f.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504081511352_08April2015g.cs" />
+    <Compile Include="Migrations\201504081511352_08April2015g.Designer.cs">
+      <DependentUpon>201504081511352_08April2015g.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
@@ -387,6 +419,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504021407310_02April2015c.resx">
       <DependentUpon>201504021407310_02April2015c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504071152036_07April2015a.resx">
+      <DependentUpon>201504071152036_07April2015a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504081121409_08April2015a.resx">
+      <DependentUpon>201504081121409_08April2015a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504081131251_08April2015b.resx">
+      <DependentUpon>201504081131251_08April2015b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504081401226_08April2015c.resx">
+      <DependentUpon>201504081401226_08April2015c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504081440196_08April2015d.resx">
+      <DependentUpon>201504081440196_08April2015d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504081449117_08April2015e.resx">
+      <DependentUpon>201504081449117_08April2015e.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504081459251_08April2015f.resx">
+      <DependentUpon>201504081459251_08April2015f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504081511352_08April2015g.resx">
+      <DependentUpon>201504081511352_08April2015g.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

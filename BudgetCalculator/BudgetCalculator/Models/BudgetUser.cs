@@ -30,14 +30,15 @@ namespace BudgetCalculator.Models
         {
             get
             {
-                return LastName + ", " + FirstName;
+                return FirstName + " " + LastName;
             }
         }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        // DOB is nullable (not 01/01/0001 at launch)
+        [Required]
+        [DataType(DataType.Date, ErrorMessage = "Please enter a valid date in the format dd/mm/yyyy")]
         [Display(Name = "D.O.B")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         [Required(ErrorMessage = "Address Line 1 is Mandatory")]
         [StringLength(50, ErrorMessage = "Address Line 1 cannot be more than 50 characters.")]
@@ -67,7 +68,7 @@ namespace BudgetCalculator.Models
         [Display(Name = "Contact No.")]
         public String ContactNo { get; set; }
 
-        // check that the e-mail address is of the correct form (not it that actually exists)
+        // check that the e-mail address is of the correct form (not that it actually exists)
         private bool isEmail(string inputEmail)
         {
             Regex re = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$",

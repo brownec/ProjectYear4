@@ -36,12 +36,27 @@
             @Html.DisplayFor(model => model.BudgetName)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.BudgetYear)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.BudgetYear)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetStartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetStartDate)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetEndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BudgetEndDate)
+        </dd>
+
     </dl>
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()

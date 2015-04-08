@@ -51,7 +51,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,BudgetId")] CarExpense carExpense, int id)
+        public ActionResult Create([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,TollChargeAmount,CarExpenseOtherAmount, BudgetId")] CarExpense carExpense, int id)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,BudgetId")] CarExpense carExpense)
+        public ActionResult Edit([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,TollChargeAmount,CarExpenseOtherAmount,BudgetId")] CarExpense carExpense)
         {
             if (ModelState.IsValid)
             {

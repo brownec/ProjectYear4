@@ -23,8 +23,14 @@
         <th>
             @Html.DisplayNameFor(model => model.BudgetName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.BudgetYear)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetEndDate)
         </th>
     </tr>
 
@@ -40,8 +46,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BudgetName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.BudgetYear)
+            </td>*@
+
+            <td>
+                @Html.DisplayFor(model => item.BudgetStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.BudgetEndDate)
             </td>
 
             <td>
@@ -49,7 +62,7 @@
                     <a class="btn btn-info" href="#">Income</a>
                     <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Add Income", "Index", "Incomes", new { id = item.BudgetId }, null)</li>
+                        <li>@Html.ActionLink("Add Income", "Create", "Incomes", new { id = item.BudgetId }, null)</li>
                         @*<li>@Html.ActionLink("Edit Income", "Edit", "Incomes", new { id = item.BudgetId }, null)</li>
                         <li>@Html.ActionLink("Income Details", "Details", "Incomes", new { id = item.BudgetId }, null)</li>
                         <li>@Html.ActionLink("Delete Income", "Delete", "Incomes", new { id = item.BudgetId }, null)</li>*@
@@ -148,7 +161,6 @@
                     </ul>
                 </div>
             </td>*@
-
         </tr>
     }
 </table>

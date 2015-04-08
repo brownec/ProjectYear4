@@ -51,7 +51,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HouseholdExpenseId,RentType,RentAmount,GroceryAmount,ClothingAmount,EducationFeesAmount,SchoolBooksAmount,MedicalBillAmount,HouseholdOtherAmount,BudgetId")] HouseholdExpense householdExpense, int id)
+        public ActionResult Create([Bind(Include = "HouseholdExpenseId,RentType,RentAmount,GroceryAmount,ClothingAmount,EducationFeesAmount,SchoolBooksAmount,MedicalBillAmount,HouseholdInsuranceAmount,HouseholdMaintenanceAmount,HouseholdOtherAmount,BudgetId")] HouseholdExpense householdExpense, int id)
         {
             // foreign key id attribute
             householdExpense.BudgetId=id;
@@ -87,7 +87,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HouseholdExpenseId,RentType,RentAmount,GroceryAmount,ClothingAmount,EducationFeesAmount,SchoolBooksAmount,MedicalBillAmount,HouseholdOtherAmount,BudgetId")] HouseholdExpense householdExpense)
+        public ActionResult Edit([Bind(Include = "HouseholdExpenseId,RentType,RentAmount,GroceryAmount,ClothingAmount,EducationFeesAmount,SchoolBooksAmount,MedicalBillAmount,HouseholdInsuranceAmount,HouseholdMaintenanceAmount,HouseholdOtherAmount,BudgetId")] HouseholdExpense householdExpense)
         {
             if (ModelState.IsValid)
             {
