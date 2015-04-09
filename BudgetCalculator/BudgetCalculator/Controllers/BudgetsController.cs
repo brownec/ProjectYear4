@@ -129,8 +129,6 @@ namespace BudgetCalculator.Controllers
             // Calculation here
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
-            
-
 
             return View();
         }
