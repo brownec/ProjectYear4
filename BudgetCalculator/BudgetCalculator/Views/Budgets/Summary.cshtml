@@ -1,4 +1,5 @@
-﻿@{
+﻿@model BudgetCalculator.Models.Budget
+@{
   ViewBag.Title = "Summary";
 }
 <p>
@@ -26,17 +27,17 @@
         </tr>
         <tr class="collapse income">
             <td>Primary Income</td>
-            <td>IN HERE</td>
+            <td>@ViewBag.PrimaryIncomeAmount</td>
             <td>0</td>
         </tr>
         <tr class="collapse income">
             <td>Additional Income</td>
-            <td>IN HERE</td>
+            <td>@ViewBag.AdditionalIncomeAmount</td>
             <td>0</td>
         </tr>
-        <tr class="primary">
+        <tr class="warning">
             <th>Income Total</th>
-            <th>IN HERE</th>
+            <th>@ViewBag.TotalIncome</th>
             <th>0</th>
         </tr>
     
@@ -49,39 +50,39 @@
         <tr class="collapse carExpenses">
             <td>Car Tax</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.CarTax</td>
         </tr>
         <tr class="collapse carExpenses">
             <td>Car Insurance</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.CarInsurance</td>
         </tr>
         <tr class="collapse carExpenses">
             <td>Car Maintenance</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.Maintenance</td>
         </tr>
         <tr class="collapse carExpenses">
             <td>Fuel</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.FuelAmount</td>
         </tr>
         <tr class="collapse carExpenses">
             <td>NCT</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.NctAmount</td>
         </tr>
         <tr class="collapse carExpenses">
             <td>Toll Charges</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.TollChargeAmount</td>
         </tr>
         <tr class="collapse carExpenses">
             <td>Other</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.CarExpenseOtherAmount</td>
         </tr>
-        <tr class="primary">
+        <tr class="warning">
             <th>Car Expenditure Total</th>
             <th>0</th>
             <th>IN HERE</th>
@@ -96,17 +97,17 @@
         <tr class="collapse householdExpenses">
             <td>Rent/Mortgage</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.RentAmount</td>
         </tr>
         <tr class="collapse householdExpenses">
             <td>Groceries/Dining Out</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.GroceryAmount</td>
         </tr>
         <tr class="collapse householdExpenses">
             <td>Clothing</td>
             <td>0</td>
-            <td>data 2</td>
+            <td>@ViewBag.ClothingAmount</td>
         </tr>
         <tr class="collapse householdExpenses">
             <td>Education Fees</td>
@@ -138,7 +139,7 @@
             <td>0</td>
             <td>data 2</td>
         </tr>    
-        <tr class="primary">
+        <tr class="warning">
             <th>Household Expenditure Total</th>
             <th>0</th>
             <th>IN HERE</th>
@@ -185,7 +186,7 @@
             <td>0</td>
             <td>data 2</td>
         </tr>
-        <tr class="primary">
+        <tr class="warning">
             <th>Personal Expenditure Total</th>
             <th>0</th>
             <th>IN HERE</th>
@@ -222,7 +223,7 @@
             <td>0</td>
             <td>data 2</td>
         </tr>
-        <tr class="primary">
+        <tr class="warning">
             <th>Travel Expenditure Total</th>
             <th>0</th>
             <th>IN HERE</th>
@@ -274,7 +275,7 @@
             <td>0</td>
             <td>data 2</td>
         </tr>
-        <tr class="primary">
+        <tr class="warning">
             <th>Utility Bill Expenditure Total</th>
             <th>0</th>
             <th>IN HERE</th>
@@ -282,12 +283,14 @@
     
     </tbody>
 
-    <tr class="info">
+    <!-- Budget Subtotal (total income | car+household+personal+travel+utility) -->
+    <tr class="danger">
         <th>Subtotals (Income / Expenditure)</th>
         <th>0</th>
         <th>0</th>
     </tr>
-    <tr class="danger">
+    <!-- Budget Balance (total income - total expenditure) -->
+    <tr class="success">
         <th><h5>Budget Balance</h5></th>
         <th></th>
         <th>+/-</th>

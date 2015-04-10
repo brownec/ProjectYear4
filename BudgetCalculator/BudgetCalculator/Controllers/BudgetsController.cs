@@ -50,7 +50,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetStartDate, BudgetEndDate")] Budget budget, int id)
+        public ActionResult Create([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetStartDate,BudgetEndDate")] Budget budget, int id)
         {
             budget.BudgetUserId = id;
             if (ModelState.IsValid)
@@ -85,7 +85,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetStartDate, BudgetEndDate")] Budget budget)
+        public ActionResult Edit([Bind(Include = "BudgetId,BudgetUserId,BudgetName,BudgetStartDate,BudgetEndDate")] Budget budget)
         {
             if (ModelState.IsValid)
             {
@@ -129,8 +129,56 @@ namespace BudgetCalculator.Controllers
             // Calculation here
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
+            
+            Income i = new Income();
+            i = db.Incomes.Where(inc => inc.BudgetId == id).SingleOrDefault();
+            //var total = b.Income.Where(t => t.IncomeId == id).SingleOrDefault();
+            double totalIncome = 0;
+            ViewBag.PrimaryIncomeAmount = i.PrimaryIncomeAmount;
 
-            return View();
+            
+            if(i.AdditionalIncomeAmount == null)
+            {
+                i.AdditionalIncomeAmount = 0;
+                ViewBag.AdditionalIncomeAmount = i.AdditionalIncomeAmount;
+            }
+            else
+            {
+                ViewBag.AdditionalIncomeAmount = i.AdditionalIncomeAmount;       
+            }
+
+            // Calculate totalIncome (PrimaryIncomeAmount + AdditionalIncomeAmount)
+            totalIncome = (double)i.PrimaryIncomeAmount; // set totalIncome = PrimaryIncome
+            if (i.AdditionalIncomeAmount != null)
+            {
+                // If AdditionalIncomeAmount, execute
+                totalIncome = (double)i.PrimaryIncomeAmount + (double)i.AdditionalIncomeAmount;    
+            }
+            ViewBag.TotalIncome = totalIncome;
+
+            CarExpense c = new CarExpense();
+            c = db.CarExpenses.Where(car => car.BudgetId == id).SingleOrDefault();
+            ViewBag.CarTax = c.CarTax;
+            ViewBag.CarInsurance = c.CarInsurance;
+            ViewBag.Maintenance = c.Maintenance;
+            ViewBag.FuelAmount = c.FuelAmount;
+            ViewBag.NctAmount = c.NctAmount;
+            ViewBag.TollChargeAmount = c.TollChargeAmount;
+            ViewBag.CarExpenseOtherAmount = c.CarExpenseOtherAmount;
+
+            HouseholdExpense h = new HouseholdExpense();
+            h = db.HouseholdExpenses.Where(house => house.BudgetId == id).SingleOrDefault();
+            ViewBag.RentAmount = h.RentAmount;
+            ViewBag.GroceryAmount = h.GroceryAmount;
+            ViewBag.ClothingAmount = h.ClothingAmount;
+            ViewBag.EducationFeesAmount = h.EducationFeesAmount;
+            ViewBag.SchoolBooksAmount = h.SchoolBooksAmount;
+            ViewBag.MedicalBillAmount = h.MedicalBillAmount;
+            ViewBag.HouseholdInsuranceAmount = h.HouseholdInsuranceAmount;
+            ViewBag.HouseholdMaintenanceAmount = h.HouseholdMaintenanceAmount;
+            ViewBag.HouseholdOtherAmount = h.HouseholdOtherAmount;
+
+            return View(b);
         }
 
         // Budget Forecast View
@@ -139,6 +187,8 @@ namespace BudgetCalculator.Controllers
             // Calculation here
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
+            
+
 
             return View();
         }
