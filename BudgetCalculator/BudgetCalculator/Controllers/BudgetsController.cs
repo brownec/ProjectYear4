@@ -708,6 +708,19 @@ namespace BudgetCalculator.Controllers
             // Summary view for Utility Bill Subtotal
             ViewBag.TotalUtilityBillExpenses = totalUtilityBillExpenses;
 
+            // SUBTOTAL CALCULATIONS
+            // TotalIncome will be same as calculated above
+            // TotalExpenses
+            double totalExpenses = 0;
+            totalExpenses = (double)totalCarExpenses + (double)totalHouseholdExpenses + (double)totalPersonalExpenses +
+                (double)totalTravelExpenses + (double)totalUtilityBillExpenses;
+            ViewBag.TotalExpenses = totalExpenses;
+
+            // BUDGET BALANCE CALCULATION
+            double budgetBalance = 0;
+            budgetBalance = (double)totalIncome - (double)totalExpenses;
+            ViewBag.BudgetBalance = budgetBalance;
+            
             return View(b);
         }        
 
