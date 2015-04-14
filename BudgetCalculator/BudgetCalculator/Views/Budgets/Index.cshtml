@@ -61,6 +61,7 @@
                     <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Add Income", "Create", "Incomes", new { id = item.BudgetId }, null)</li>
+                        <li>@Html.ActionLink("Edit Income", "Edit", "Incomes", new { id = item.BudgetId }, null)</li>
                     </ul>
                 </div>
             </td>
