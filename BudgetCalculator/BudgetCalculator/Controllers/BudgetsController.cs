@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BudgetCalculator.Models;
+using DotNet.Highcharts.Options;
+using DotNet.Highcharts.Helpers;
 
 namespace BudgetCalculator.Controllers
 {
@@ -39,6 +41,9 @@ namespace BudgetCalculator.Controllers
         // GET: Budgets/Create
         public ActionResult Create(int id)
         {
+            //// initially have a Car with no electronic tag and price displayed
+            //return View(new Vehicle { VehicleType = VehicleType.Car, HasETag = false });
+
             Budget b = new Budget();
             b.BudgetUserId = id;
             // ViewBag.BudgetUserId = new SelectList(db.BudgetUsers, "BudgetUserId", "LastName");
@@ -136,8 +141,23 @@ namespace BudgetCalculator.Controllers
 
             double totalIncome = 0;
 
+            // ---------- PrimaryIncomeAmount ----------
             ViewBag.PrimaryIncomeAmount = i.PrimaryIncomeAmount;
+            if (i.PrimaryIncomeAmount == null)
+            {
+                // set initial amount to zero
+                i.PrimaryIncomeAmount = 0;
+                ViewBag.PrimaryIncomeAmount = i.PrimaryIncomeAmount;
+            }
+            else
+            {
+                // otherwise set AdditionalIncomeAmount to user input
+                ViewBag.PrimaryIncomeAmount = i.PrimaryIncomeAmount;
+            }
+
+            // ---------- AdditionalIncomeAmount ----------
             // if AdditionalIncomeAmount is NULL
+            ViewBag.AdditionalIncomeAmount = i.AdditionalIncomeAmount;
             if (i.AdditionalIncomeAmount == null)
             {
                 // set initial amount to zero
@@ -168,6 +188,7 @@ namespace BudgetCalculator.Controllers
 
             double totalCarExpenses = 0;
 
+            // ---------- CarTax ----------
             ViewBag.CarTax = c.CarTax;
             if (c.CarTax == null)
             {
@@ -181,6 +202,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.CarTax = c.CarTax;
             }
 
+            // ---------- CarInsurance ----------
             ViewBag.CarInsurance = c.CarInsurance;
             if (c.CarInsurance == null)
             {
@@ -194,6 +216,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.CarCarInsurance = c.CarInsurance;
             }
 
+            // ---------- Maintenance ----------
             ViewBag.Maintenance = c.Maintenance;
             if (c.Maintenance == null)
             {
@@ -207,6 +230,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.Maintenance = c.Maintenance;
             }
 
+            // ---------- FuelAmount ----------
             ViewBag.FuelAmount = c.FuelAmount;
             if (c.FuelAmount == null)
             {
@@ -220,6 +244,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.FuelAmount = c.FuelAmount;
             }
 
+            // ---------- NctAmount ----------
             ViewBag.NctAmount = c.NctAmount;
             if (c.NctAmount == null)
             {
@@ -233,6 +258,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.NctAmount = c.NctAmount;
             }
 
+            // ---------- TollChargeAmount ----------
             ViewBag.TollChargeAmount = c.TollChargeAmount;
             if (c.TollChargeAmount == null)
             {
@@ -246,6 +272,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.TollChargeAmount = c.TollChargeAmount;
             }
 
+            // ---------- CarExpenseOtherAmount ----------
             ViewBag.CarExpenseOtherAmount = c.CarExpenseOtherAmount;
             if (c.CarExpenseOtherAmount == null)
             {
@@ -264,6 +291,7 @@ namespace BudgetCalculator.Controllers
                                (double)c.FuelAmount + (double)c.NctAmount + (double)c.TollChargeAmount +
                                (double)c.CarExpenseOtherAmount;
 
+            // To be passed into the SummaryTable view
             ViewBag.TotalCarExpenses = totalCarExpenses;
             //-----------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------
@@ -275,6 +303,7 @@ namespace BudgetCalculator.Controllers
 
             double totalHouseholdExpenses = 0;
 
+            // ---------- RentAmount ----------
             ViewBag.RentAmount = h.RentAmount;
             if (h.RentAmount == null)
             {
@@ -288,6 +317,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.RentAmount = h.RentAmount;
             }
 
+            // ---------- GroceryAmount ----------
             ViewBag.GroceryAmount = h.GroceryAmount;
             if (h.GroceryAmount == null)
             {
@@ -301,6 +331,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.GroceryAmount = h.GroceryAmount;
             }
 
+            // ---------- ClothingAmount ----------
             ViewBag.ClothingAmount = h.ClothingAmount;
             if (h.ClothingAmount == null)
             {
@@ -314,6 +345,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.ClothingAmount = h.ClothingAmount;
             }
 
+            // ---------- EducationFeesAmount ----------
             ViewBag.EducationFeesAmount = h.EducationFeesAmount;
             if (h.EducationFeesAmount == null)
             {
@@ -327,6 +359,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.EducationFeesAmount = h.EducationFeesAmount;
             }
 
+            // ---------- SchoolBooksAmount ----------
             ViewBag.SchoolBooksAmount = h.SchoolBooksAmount;
             if (h.SchoolBooksAmount == null)
             {
@@ -340,6 +373,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.SchoolBooksAmount = h.SchoolBooksAmount;
             }
 
+            // ---------- MedicalBillAmount ----------
             ViewBag.MedicalBillAmount = h.MedicalBillAmount;
             if (h.MedicalBillAmount == null)
             {
@@ -353,6 +387,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.MedicalBillAmount = h.MedicalBillAmount;
             }
 
+            // ---------- HouseholdInsuranceAmount ----------
             ViewBag.HouseholdInsuranceAmount = h.HouseholdInsuranceAmount;
             if (h.HouseholdInsuranceAmount == null)
             {
@@ -366,6 +401,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.HouseholdInsuranceAmount = h.HouseholdInsuranceAmount;
             }
 
+            // ---------- HouseholdMaintenanceAmount ----------
             ViewBag.HouseholdMaintenanceAmount = h.HouseholdMaintenanceAmount;
             if (h.HouseholdMaintenanceAmount == null)
             {
@@ -379,6 +415,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.HouseholdMaintenanceAmount = h.HouseholdMaintenanceAmount;
             }
 
+            // ---------- HouseholdOtherAmount ----------
             ViewBag.HouseholdOtherAmount = h.HouseholdOtherAmount;
             if (h.HouseholdOtherAmount == null)
             {
@@ -398,7 +435,7 @@ namespace BudgetCalculator.Controllers
                                      (double)h.HouseholdInsuranceAmount + (double)h.HouseholdMaintenanceAmount +
                                      (double)h.HouseholdOtherAmount;
 
-            // Summary view for Household Expenses Subtotal
+            // Household Expenses Subtotal to passed to the SummaryTable view
             ViewBag.TotalHouseholdExpenses = totalHouseholdExpenses;
             //-----------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------
@@ -410,6 +447,7 @@ namespace BudgetCalculator.Controllers
 
             double totalPersonalExpenses = 0;
 
+            // ---------- SocialAmount ----------
             ViewBag.SocialAmount = pe.SocialAmount;
             if (pe.SocialAmount == null)
             {
@@ -423,6 +461,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.SocialAmount = pe.SocialAmount;
             }
 
+            // ---------- GymMembershipAmount ----------
             ViewBag.GymMembershipAmount = pe.GymMembershipAmount;
             if (pe.GymMembershipAmount == null)
             {
@@ -436,6 +475,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.GymMembershipAmount = pe.GymMembershipAmount;
             }
 
+            // ---------- SportsFeeAmount ----------
             ViewBag.SportsFeeAmount = pe.SportsFeeAmount;
             if (pe.SportsFeeAmount == null)
             {
@@ -449,6 +489,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.SportsFeeAmount = pe.SportsFeeAmount;
             }
 
+            // ---------- HolidayAmount ----------
             ViewBag.HolidayAmount = pe.HolidayAmount;
             if (pe.HolidayAmount == null)
             {
@@ -462,6 +503,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.HolidayAmount = pe.HolidayAmount;
             }
 
+            // ---------- SavingsAmount ----------
             ViewBag.SavingsAmount = pe.SavingsAmount;
             if (pe.SavingsAmount == null)
             {
@@ -475,6 +517,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.SavingsAmount = pe.SavingsAmount;
             }
 
+            // ---------- LoanRepaymentAmount ----------
             ViewBag.LoanRepaymentAmount = pe.LoanRepaymentAmount;
             if (pe.LoanRepaymentAmount == null)
             {
@@ -488,6 +531,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.LoanRepaymentAmount = pe.LoanRepaymentAmount;
             }
 
+            // ---------- PersonalExpenseAmount ----------
             ViewBag.PersonalExpenseOther = pe.PersonalExpenseOther;
             if (pe.PersonalExpenseOther == null)
             {
@@ -501,12 +545,13 @@ namespace BudgetCalculator.Controllers
                 ViewBag.PersonalExpenseOther = pe.PersonalExpenseOther;
             }
 
+            // Calculate the total expenses for Personal Expenses
             totalPersonalExpenses = (double)pe.SocialAmount + (double)pe.GymMembershipAmount + (double)pe.SportsFeeAmount +
                                     (double)pe.HolidayAmount + (double)pe.SavingsAmount + (double)pe.LoanRepaymentAmount +
                                     (double)pe.PersonalExpenseOther;
 
 
-            // Summary view for Personal Expenses Subtotal
+            // Personal Expenses Subtotal to be passed to the SummaryTable
             ViewBag.TotalPersonalExpenses = totalPersonalExpenses;
             //-----------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------
@@ -517,6 +562,7 @@ namespace BudgetCalculator.Controllers
 
             double totalTravelExpenses = 0;
 
+            // ---------- BusAmount ----------
             ViewBag.BusAmount = t.BusAmount;
             if (t.BusAmount == null)
             {
@@ -530,6 +576,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.BusAmount = t.BusAmount;
             }
 
+            // ---------- LuasAmount ----------
             ViewBag.LuasAmount = t.LuasAmount;
             if (t.LuasAmount == null)
             {
@@ -543,6 +590,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.LuasAmount = t.LuasAmount;
             }
 
+            // ---------- TaxiAmount ----------
             ViewBag.TaxiAmount = t.TaxiAmount;
             if (t.TaxiAmount == null)
             {
@@ -556,6 +604,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.TaxiAmount = t.TaxiAmount;
             }
 
+            // ---------- TrainAmount ----------
             ViewBag.TrainAmount = t.TrainAmount;
             if (t.TrainAmount == null)
             {
@@ -569,6 +618,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.TrainAmount = t.TrainAmount;
             }
 
+            // ---------- TravelOther ----------
             ViewBag.TravelOther = t.TravelOther;
             if (t.TravelOther == null)
             {
@@ -582,10 +632,11 @@ namespace BudgetCalculator.Controllers
                 ViewBag.TravelOther = t.TravelOther;
             }
 
+            // Calculate the total expenses for Travel Expenses
             totalTravelExpenses = (double)t.BusAmount + (double)t.LuasAmount + (double)t.TaxiAmount +
                                   (double)t.TrainAmount + (double)t.TravelOther;
 
-            // Summary view for Travel Expenses Subtotal
+            // Travel Expenses Subtotal to be passed to the SummaryTable
             ViewBag.TotalTravelExpenses = totalTravelExpenses;
             //-----------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------
@@ -597,6 +648,7 @@ namespace BudgetCalculator.Controllers
 
             double totalUtilityBillExpenses = 0;
 
+            // ---------- Electricity ----------
             ViewBag.Electricity = u.Electricity;
             if (u.Electricity == null)
             {
@@ -610,6 +662,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.Electricity = u.Electricity;
             }
 
+            // ---------- Gas ----------
             ViewBag.Gas = u.Gas;
             if (u.Gas == null)
             {
@@ -623,6 +676,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.Gas = u.Gas;
             }
 
+            // ---------- RefuseCollection ----------
             ViewBag.RefuseCollection = u.RefuseCollection;
             if (u.RefuseCollection == null)
             {
@@ -636,6 +690,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.RefuseCollection = u.RefuseCollection;
             }
 
+            // ---------- IrishWater ----------
             ViewBag.IrishWater = u.IrishWater;
             if (u.IrishWater == null)
             {
@@ -649,6 +704,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.IrishWater = u.IrishWater;
             }
 
+            // ---------- TVAmount ----------
             ViewBag.TVAmount = u.TVAmount;
             if (u.TVAmount == null)
             {
@@ -662,6 +718,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.TVAmount = u.TVAmount;
             }
 
+            // ---------- PhoneBillAmount ----------
             ViewBag.PhoneBillAmount = u.PhoneBillAmount;
             if (u.PhoneBillAmount == null)
             {
@@ -675,6 +732,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.PhoneBillAmount = u.PhoneBillAmount;
             }
 
+            // ---------- BroadbandAmount ----------
             ViewBag.BroadbandAmount = u.BroadbandAmount;
             if (u.BroadbandAmount == null)
             {
@@ -688,6 +746,7 @@ namespace BudgetCalculator.Controllers
                 ViewBag.BroadbandAmount = u.BroadbandAmount;
             }
 
+            // ---------- UtilityBillExpenseAmount ----------
             ViewBag.UtilityBillExpenseAmount = u.UtilityBillExpenseAmount;
             if (u.UtilityBillExpenseAmount == null)
             {
@@ -701,14 +760,15 @@ namespace BudgetCalculator.Controllers
                 ViewBag.UtilityBillExpenseAmount = u.UtilityBillExpenseAmount;
             }
 
+            // Calculate the total expenses for UtilityBillExpenses
             totalUtilityBillExpenses = (double)u.Electricity + (double)u.Gas + (double)u.RefuseCollection +
                                        (double)u.IrishWater + (double)u.TVAmount + (double)u.PhoneBillAmount +
                                        (double)u.BroadbandAmount + (double)u.UtilityBillExpenseAmount;
 
-            // Summary view for Utility Bill Subtotal
+            // Utility Bill Subtotal to be passed to SummaryTable
             ViewBag.TotalUtilityBillExpenses = totalUtilityBillExpenses;
 
-            // SUBTOTAL CALCULATIONS
+            // ---------- SUBTOTAL CALCULATIONS ----------
             // TotalIncome will be same as calculated above
             // TotalExpenses
             double totalExpenses = 0;
@@ -716,14 +776,13 @@ namespace BudgetCalculator.Controllers
                 (double)totalTravelExpenses + (double)totalUtilityBillExpenses;
             ViewBag.TotalExpenses = totalExpenses;
 
-            // BUDGET BALANCE CALCULATION
+            // ---------- BUDGET BALANCE CALCULATION ----------
             double budgetBalance = 0;
             budgetBalance = (double)totalIncome - (double)totalExpenses;
             ViewBag.BudgetBalance = budgetBalance;
-            
-            return View(b);
-        }        
 
+            return View(b);
+        }
 
         // Budget Forecast View
         public ActionResult Forecast(int? id)
@@ -731,10 +790,35 @@ namespace BudgetCalculator.Controllers
             // Calculation here
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
-            
 
+            // var total = From e in db.Budget Where e.BudgetId == id Select e;
+            // int size = total.Count(); // set the size of array
+            // object[] Budget1 = new object[size];
+            // int counter = 0;
+            //foreach(var item in total)
+            //{
+            //    Budget1[i] = item.CarTax;
+            //}
 
-            return View();
+            DotNet.Highcharts.Highcharts chart = new DotNet.Highcharts.Highcharts("chart")
+            .SetCredits(new Credits { Enabled = false }) // takes away hyperlink for highcharts
+            .SetTooltip(new Tooltip { Crosshairs = new Crosshairs(true, true) })
+            .SetTitle(new Title { Text = "Budget1 Monthly Budget" })
+            .SetSubtitle(new Subtitle { Text = " Sample Chart " })
+            .SetXAxis(new XAxis
+            {
+                // create Object array
+                // Categories = CliffsArray;
+                // 
+                Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+            })
+
+            .SetSeries(new Series
+            {
+                Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
+            });
+
+            return View(chart);
         }
 
         protected override void Dispose(bool disposing)

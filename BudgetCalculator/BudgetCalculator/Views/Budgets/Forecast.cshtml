@@ -1,13 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Forecast";
 }
+
 <p>
     <br />
     <a class="btn btn-primary btn-xs" @Html.ActionLink("Home", "Index", "Home")</a>
     <a class="btn btn-primary btn-xs" @Html.ActionLink("My Budgets", "Index", "Budgets")</a>
-    @*@Html.ActionLink("Home", "Index", "Home") |
-    @Html.ActionLink("My Budgets", "Index", "Budgets")*@
 </p>
-<h3>Budget Forecast</h3>
-<h4>Budget Forecast based on the information that has been provided.</h4>
+<h3>Budget Charts</h3>
+@*<h4>Budget Forecast based on the information that has been provided.</h4>*@
+
+@Scripts.Render("~/bundles/jQuery")
+@model DotNet.Highcharts.Highcharts
+
+@(Model)
