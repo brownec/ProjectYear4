@@ -46,6 +46,11 @@ namespace BudgetCalculator.Models
         [Display(Name = "Personal Other")]
         public double? PersonalExpenseOther { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
+        [Display(Name = "Total Personal Expenses")]
+        public double? TotalPersonalExpenses { get; set; }
+
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }
     }

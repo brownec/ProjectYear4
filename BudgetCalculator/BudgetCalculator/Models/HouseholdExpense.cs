@@ -60,6 +60,11 @@ namespace BudgetCalculator.Models
         [Display(Name = "Other")]
         public double? HouseholdOtherAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
+        [Display(Name = "Total Household Expenses")]
+        public double? TotalHouseholdExpenses { get; set; }
+
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }
     }

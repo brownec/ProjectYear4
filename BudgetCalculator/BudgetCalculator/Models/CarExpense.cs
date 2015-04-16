@@ -19,7 +19,7 @@ namespace BudgetCalculator.Models
         NCT,
         [Display(Name = "Small Public Service Vehicles")]
         SPSV, 
-        [Display(Name="CommercialVehicles")] 
+        [Display(Name="Commercial Vehicles")] 
         CVT,
         Other 
     };
@@ -67,7 +67,12 @@ namespace BudgetCalculator.Models
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [Display(Name = "Other")]
         public double? CarExpenseOtherAmount { get; set; }
-        
+
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
+        [Display(Name = "Total Car Expenses")]
+        public double? TotalCarExpense { get; set; }
+
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }
     }

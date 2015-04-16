@@ -15,7 +15,18 @@ namespace BudgetCalculator.Controllers
     public class BudgetsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        
+        // Variables to store Income total, Expense subtotal and Expense total and budgetBalance total
+        double globalTotalIncome = 0;
+        double globalTotalCarExpenses = 0;
+        double globalTotalHouseholdExpenses = 0;
+        double globalTotalPersonalExpenses = 0;
+        double globalTotalTravelExpenses = 0;
+        double globalTotalUtilityBillExpenses = 0;
+        double globalTotalExpenses = 0;
+        double globalBudgetBalance = 0;
+        
+            
         // GET: Budgets
         public ActionResult Index()
         {
@@ -128,6 +139,14 @@ namespace BudgetCalculator.Controllers
             return RedirectToAction("Index");
         }
 
+        //// Total Income Method
+        //public ActionResult getBudgetBalance(int id)
+        //{
+           
+
+        //    return View();
+        //}
+
         // Budget Summary View
         public ActionResult Summary(int? id)
         {
@@ -178,6 +197,7 @@ namespace BudgetCalculator.Controllers
                 totalIncome = (double)i.PrimaryIncomeAmount + (double)i.AdditionalIncomeAmount;
             }
             ViewBag.TotalIncome = totalIncome;
+            globalTotalIncome = totalIncome;
             //-----------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------
@@ -783,6 +803,9 @@ namespace BudgetCalculator.Controllers
 
             return View(b);
         }
+        // ----------------------- END OF SUMMARY METHOD -----------------------
+        // ----------------------------------------------------------------------
+        // ----------------------------------------------------------------------
 
         // Budget Forecast View
         public ActionResult Forecast(int? id)
@@ -790,16 +813,21 @@ namespace BudgetCalculator.Controllers
             // Calculation here
             Budget b = new Budget();
             b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
+            // LINQ to retrieve all Budgets where the BudgetId matches id being passed in
+            var total = from e in db.Budgets where e.BudgetId == id select e;
+            // set the size of array
+            int size = total.Count(); 
+            // create an Object Array to store CarTax
+            object[] CarTaxChart = new object[size];
+            int counter = 0;
+                
+            foreach (var item in total)
+            {
+                CarTaxChart[counter] = item.CarExpenses;    
+                counter++;
+            }
 
-            // var total = From e in db.Budget Where e.BudgetId == id Select e;
-            // int size = total.Count(); // set the size of array
-            // object[] Budget1 = new object[size];
-            // int counter = 0;
-            //foreach(var item in total)
-            //{
-            //    Budget1[i] = item.CarTax;
-            //}
-
+                        
             DotNet.Highcharts.Highcharts chart = new DotNet.Highcharts.Highcharts("chart")
             .SetCredits(new Credits { Enabled = false }) // takes away hyperlink for highcharts
             .SetTooltip(new Tooltip { Crosshairs = new Crosshairs(true, true) })
@@ -820,6 +848,9 @@ namespace BudgetCalculator.Controllers
 
             return View(chart);
         }
+        // ----------------------- END OF FORECAST METHOD -----------------------
+        // ----------------------------------------------------------------------
+        // ----------------------------------------------------------------------
 
         protected override void Dispose(bool disposing)
         {

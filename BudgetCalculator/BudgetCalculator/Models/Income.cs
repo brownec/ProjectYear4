@@ -22,6 +22,11 @@ namespace BudgetCalculator.Models
         [Display(Name = "Additional Income")]
         public double? AdditionalIncomeAmount { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
+        [Display(Name = "Total Income")]
+        public double? TotalIncome { get; set; }
+
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }
     }
