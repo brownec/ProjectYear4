@@ -71,7 +71,7 @@ namespace BudgetCalculator.Models
         [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         [Range(0, double.MaxValue, ErrorMessage = "The value must be greater than 0")]
         [Display(Name = "Total Car Expenses")]
-        public double? TotalCarExpense { get; set; }
+        public double? TotalCarExpenses { get; set; }
 
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }

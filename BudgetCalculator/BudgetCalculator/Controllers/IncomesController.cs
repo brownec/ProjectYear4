@@ -51,7 +51,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IncomeId,PrimaryIncomeAmount,AdditionalIncomeAmount,BudgetId")] Income income, int id) // , int id
+        public ActionResult Create([Bind(Include = "IncomeId,PrimaryIncomeAmount,AdditionalIncomeAmount,TotalIncome,BudgetId")] Income income, int id) // , int id
         {
             // foreign key id attribute
             income.BudgetId = id;
@@ -87,7 +87,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IncomeId,PrimaryIncomeAmount,AdditionalIncomeAmount,BudgetId")] Income income)
+        public ActionResult Edit([Bind(Include = "IncomeId,PrimaryIncomeAmount,AdditionalIncomeAmount,TotalIncome,BudgetId")] Income income)
         {
             if (ModelState.IsValid)
             {

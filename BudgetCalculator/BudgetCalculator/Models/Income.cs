@@ -30,4 +30,4 @@ namespace BudgetCalculator.Models
         public int BudgetId { get; set; }
         public virtual Budget Budget { get; set; }
     }
-}
+} 

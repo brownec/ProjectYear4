@@ -51,7 +51,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UtilityBillExpenseId,Electricity,Gas,RefuseCollection,IrishWater,TVAmount,PhoneBillAmount,BroadbandAmount,UtilityBillExpenseAmount,BudgetId")] UtilityBillExpense utilityBillExpense, int id)
+        public ActionResult Create([Bind(Include = "UtilityBillExpenseId,Electricity,Gas,RefuseCollection,IrishWater,TVAmount,PhoneBillAmount,BroadbandAmount,UtilityBillExpenseAmount,TotalUtilityBillExpenses,BudgetId")] UtilityBillExpense utilityBillExpense, int id)
         {
             // foreign key id attribute
             utilityBillExpense.BudgetId = id;
@@ -87,7 +87,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UtilityBillExpenseId,Electricity,Gas,RefuseCollection,IrishWater,TVAmount,PhoneBillAmount,BroadbandAmount,UtilityBillExpenseAmount,BudgetId")] UtilityBillExpense utilityBillExpense)
+        public ActionResult Edit([Bind(Include = "UtilityBillExpenseId,Electricity,Gas,RefuseCollection,IrishWater,TVAmount,PhoneBillAmount,BroadbandAmount,UtilityBillExpenseAmount,TotalUtilityBillExpenses,BudgetId")] UtilityBillExpense utilityBillExpense)
         {
             if (ModelState.IsValid)
             {

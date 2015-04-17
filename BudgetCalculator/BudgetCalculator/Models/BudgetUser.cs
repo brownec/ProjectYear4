@@ -75,7 +75,7 @@ namespace BudgetCalculator.Models
                           RegexOptions.IgnoreCase);
             return re.IsMatch(inputEmail);
         }
-
+        //public Budget budget {get;set}
         public virtual ICollection<Budget> Budgets { get; set; }
     }
 }

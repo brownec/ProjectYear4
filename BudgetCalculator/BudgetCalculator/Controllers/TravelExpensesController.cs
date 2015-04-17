@@ -51,7 +51,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TravelExpenseId,BusAmount,LuasAmount,TaxiAmount,TrainAmount,TravelOther,BudgetId")] TravelExpense travelExpense, int id)
+        public ActionResult Create([Bind(Include = "TravelExpenseId,BusAmount,LuasAmount,TaxiAmount,TrainAmount,TravelOther,TotalTravelExpenses,BudgetId")] TravelExpense travelExpense, int id)
         {
             // foreign key id attribute
             travelExpense.BudgetId = id;
@@ -87,7 +87,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TravelExpenseId,BusAmount,LuasAmount,TaxiAmount,TrainAmount,TravelOther,BudgetId")] TravelExpense travelExpense)
+        public ActionResult Edit([Bind(Include = "TravelExpenseId,BusAmount,LuasAmount,TaxiAmount,TrainAmount,TravelOther,TotalTravelExpenses,BudgetId")] TravelExpense travelExpense)
         {
             if (ModelState.IsValid)
             {

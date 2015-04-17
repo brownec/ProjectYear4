@@ -51,7 +51,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonalExpenseId,SocialAmount,GymMembershipAmount,SportsFeeAmount,HolidayAmount,SavingsAmount,LoanRepaymentAmount,PersonalExpenseOther,BudgetId")] PersonalExpense personalExpense, int id)
+        public ActionResult Create([Bind(Include = "PersonalExpenseId,SocialAmount,GymMembershipAmount,SportsFeeAmount,HolidayAmount,SavingsAmount,LoanRepaymentAmount,PersonalExpenseOther,TotalPersonalExpenses,BudgetId")] PersonalExpense personalExpense, int id)
         {
             // foreign key id attribute
             personalExpense.BudgetId=id;
@@ -87,7 +87,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonalExpenseId,SocialAmount,GymMembershipAmount,SportsFeeAmount,HolidayAmount,SavingsAmount,LoanRepaymentAmount,PersonalExpenseOther,BudgetId")] PersonalExpense personalExpense)
+        public ActionResult Edit([Bind(Include = "PersonalExpenseId,SocialAmount,GymMembershipAmount,SportsFeeAmount,HolidayAmount,SavingsAmount,LoanRepaymentAmount,PersonalExpenseOther,TotalPersonalExpenses,BudgetId")] PersonalExpense personalExpense)
         {
             if (ModelState.IsValid)
             {

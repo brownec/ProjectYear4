@@ -51,19 +51,140 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,TollChargeAmount,CarExpenseOtherAmount, BudgetId")] CarExpense carExpense, int id)
+        public ActionResult Create([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,TollChargeAmount,CarExpenseOtherAmount,TotalCarExpenses,BudgetId")] CarExpense carExpense, int id)
         {
             if (ModelState.IsValid)
             {
                 // foreign key id attribute
+               
+                
                 carExpense.BudgetId=id;
+                carExpense.TotalCarExpenses = 0;
                 db.CarExpenses.Add(carExpense);
+                // carExpense.TotalCarExpenses = popoulateExpense(carExpense,id);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
+                 return RedirectToAction("Index");
+                //return RedirectToAction("popoulateExpense", carExpense);
             }
 
             ViewBag.BudgetId = new SelectList(db.Budgets, "BudgetId", "BudgetName", carExpense.BudgetId);
             return View(carExpense);
+        }
+
+        public double popoulateExpense(CarExpense carExpense)
+        {
+            CarExpense c = new CarExpense();
+                c = carExpense;
+            // c = db.CarExpenses.Where(car => car.BudgetId == id).SingleOrDefault();
+
+            double totalCarExpenses = 0;
+
+            // ---------- CarTax ----------
+            ViewBag.CarTax = c.CarTax;
+            if (c.CarTax == null)
+            {
+                // set initial amount to zero
+                c.CarTax = 0;
+                ViewBag.CarTax = c.CarTax;
+            }
+            else
+            {
+                // otherwise set CarTax to user input
+                ViewBag.CarTax = c.CarTax;
+            }
+
+            // ---------- CarInsurance ----------
+            ViewBag.CarInsurance = c.CarInsurance;
+            if (c.CarInsurance == null)
+            {
+                // set initial amount to zero
+                c.CarInsurance = 0;
+                ViewBag.CarInsurance = c.CarInsurance;
+            }
+            else
+            {
+                // otherwise set CarCarInsurance to user input
+                ViewBag.CarCarInsurance = c.CarInsurance;
+            }
+
+            // ---------- Maintenance ----------
+            ViewBag.Maintenance = c.Maintenance;
+            if (c.Maintenance == null)
+            {
+                // set initial amount to zero
+                c.Maintenance = 0;
+                ViewBag.Maintenance = c.Maintenance;
+            }
+            else
+            {
+                // otherwise set Maintenance to user input
+                ViewBag.Maintenance = c.Maintenance;
+            }
+
+            // ---------- FuelAmount ----------
+            ViewBag.FuelAmount = c.FuelAmount;
+            if (c.FuelAmount == null)
+            {
+                // set initial amount to zero
+                c.FuelAmount = 0;
+                ViewBag.FuelAmount = c.FuelAmount;
+            }
+            else
+            {
+                // otherwise set FuelAmount to user input
+                ViewBag.FuelAmount = c.FuelAmount;
+            }
+
+            // ---------- NctAmount ----------
+            ViewBag.NctAmount = c.NctAmount;
+            if (c.NctAmount == null)
+            {
+                // set initial amount to zero
+                c.NctAmount = 0;
+                ViewBag.NctAmount = c.NctAmount;
+            }
+            else
+            {
+                // otherwise set NctAmount to user input
+                ViewBag.NctAmount = c.NctAmount;
+            }
+
+            // ---------- TollChargeAmount ----------
+            ViewBag.TollChargeAmount = c.TollChargeAmount;
+            if (c.TollChargeAmount == null)
+            {
+                // set initial amount to zero
+                c.TollChargeAmount = 0;
+                ViewBag.TollChargeAmount = c.TollChargeAmount;
+            }
+            else
+            {
+                // otherwise set TollChargeAmount to user input
+                ViewBag.TollChargeAmount = c.TollChargeAmount;
+            }
+
+            // ---------- CarExpenseOtherAmount ----------
+            ViewBag.CarExpenseOtherAmount = c.CarExpenseOtherAmount;
+            if (c.CarExpenseOtherAmount == null)
+            {
+                // set initial amount to zero
+                c.CarExpenseOtherAmount = 0;
+                ViewBag.CarExpenseOtherAmount = c.CarExpenseOtherAmount;
+            }
+            else
+            {
+                // otherwise set CarExpenseOtherAmount to user input
+                ViewBag.CarExpenseOtherAmount = c.CarExpenseOtherAmount;
+            }
+
+            // Calculate totalCarExpenses
+            c.TotalCarExpenses = (double)c.CarTax + (double)c.CarInsurance + (double)c.Maintenance +
+                               (double)c.FuelAmount + (double)c.NctAmount + (double)c.TollChargeAmount +
+                               (double)c.CarExpenseOtherAmount;
+
+             return (double) c.TotalCarExpenses;
+            //return RedirectToAction("Index");
         }
 
         // GET: CarExpenses/Edit/5
@@ -87,7 +208,7 @@ namespace BudgetCalculator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,TollChargeAmount,CarExpenseOtherAmount,BudgetId")] CarExpense carExpense)
+        public ActionResult Edit([Bind(Include = "CarExpenseId,CarTax,CarInsurance,Maintenance,FuelType,FuelAmount,NctTest,NctAmount,TollChargeAmount,CarExpenseOtherAmount,TotalCarExpenses,BudgetId")] CarExpense carExpense)
         {
             if (ModelState.IsValid)
             {

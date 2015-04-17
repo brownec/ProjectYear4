@@ -16,7 +16,7 @@ namespace BudgetCalculator.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         
-        // Variables to store Income total, Expense subtotal and Expense total and budgetBalance total
+        // Global variables to be accessed throughout controller methods
         double globalTotalIncome = 0;
         double globalTotalCarExpenses = 0;
         double globalTotalHouseholdExpenses = 0;
@@ -138,14 +138,6 @@ namespace BudgetCalculator.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        //// Total Income Method
-        //public ActionResult getBudgetBalance(int id)
-        //{
-           
-
-        //    return View();
-        //}
 
         // Budget Summary View
         public ActionResult Summary(int? id)
@@ -307,7 +299,7 @@ namespace BudgetCalculator.Controllers
             }
 
             // Calculate totalCarExpenses
-            totalCarExpenses = (double)c.CarTax + (double)c.CarInsurance + (double)c.Maintenance +
+            c.TotalCarExpenses = (double)c.CarTax + (double)c.CarInsurance + (double)c.Maintenance +
                                (double)c.FuelAmount + (double)c.NctAmount + (double)c.TollChargeAmount +
                                (double)c.CarExpenseOtherAmount;
 
@@ -802,8 +794,9 @@ namespace BudgetCalculator.Controllers
             ViewBag.BudgetBalance = budgetBalance;
 
             return View(b);
+           // return RedirectToAction("Forecast", id);
         }
-        // ----------------------- END OF SUMMARY METHOD -----------------------
+        // ----------------------- END OF SUMMARY METHOD ------------------------
         // ----------------------------------------------------------------------
         // ----------------------------------------------------------------------
 
@@ -812,20 +805,52 @@ namespace BudgetCalculator.Controllers
         {
             // Calculation here
             Budget b = new Budget();
-            b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
+            //get the list of budgets that rrelate to the specific user
+            List<Budget> bud = db.Budgets.Where(user => user.BudgetUserId == id).ToList();
+           // b = db.Budgets.Where(user => user.BudgetUserId == id).;
+            
+            CarExpense c = new CarExpense();
+           var carExp =new CarExpense();
+            var i = 0;
+
+            double [] carArray = new double[bud.Count];
+            foreach( var item in bud)
+            {
+              //object[] obj = new object // 
+               // carExp = c.TotalCarExpenses;
+               c = item.CarExpenses.Where(car => car.BudgetId == item.BudgetId).SingleOrDefault();
+               //c.TotalCarExpenses = 0;
+               if (c.TotalCarExpenses == null)
+               {
+                   c.TotalCarExpenses = 0;
+                   i++;
+               }
+               else
+               {
+                   carArray[i] = (double)c.TotalCarExpenses;
+               }
+               
+                i++;
+
+            }
+             
+
+           // b = db.Budgets.Where(p => p.BudgetId == id).SingleOrDefault();
+
             // LINQ to retrieve all Budgets where the BudgetId matches id being passed in
             var total = from e in db.Budgets where e.BudgetId == id select e;
+
             // set the size of array
             int size = total.Count(); 
-            // create an Object Array to store CarTax
-            object[] CarTaxChart = new object[size];
+            // create an Object Array to store 
+            object[] CarExpenseChart = new object[size];
             int counter = 0;
                 
-            foreach (var item in total)
-            {
-                CarTaxChart[counter] = item.CarExpenses;    
-                counter++;
-            }
+            //foreach (var item in list)
+            //{
+            //    CarExpenseChart[counter] = item.CarExpenses
+            //    counter++;
+            //}
 
                         
             DotNet.Highcharts.Highcharts chart = new DotNet.Highcharts.Highcharts("chart")
@@ -840,7 +865,7 @@ namespace BudgetCalculator.Controllers
                 // 
                 Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
             })
-
+             
             .SetSeries(new Series
             {
                 Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
